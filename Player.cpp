@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "DxLib.h"
 
+//tset
 Player::Player(){
 }
 
