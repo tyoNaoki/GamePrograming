@@ -127,7 +127,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Mathematics.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="System.cpp" />
     <ClCompile Include="WinMain.cpp" />
     <ClCompile Include="UI.cpp" />
   </ItemGroup>
@@ -136,7 +138,9 @@
     <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Mathematics.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="System.h" />
     <ClInclude Include="UI.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
