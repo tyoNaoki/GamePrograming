@@ -1,6 +1,9 @@
 #include "System.h"
 #include "DxLib.h"
 #include "Mathematics.h"
+#include "MainTask_Controller.h"
+#include <Windows.h>
+#include "Task_Game.h"
 
 // フェードアウト、フェードインの速度
 #define FADE_SPEED			(1.0f)
@@ -23,6 +26,8 @@ static bool System_Initialize();
 static void System_Terminate();
 
 static void System_FadeRender();
+
+static std::unique_ptr<MainTask_Controller>mainTask_Controller = std::make_unique<MainTask_Controller>();
 
 static void System_FadeStep(
 	// 推移させる時間( 単位 : 秒 )
@@ -108,9 +113,10 @@ static bool System_Initialize() {
 		return false;
 	}
 
-	g_SystemInfo.BackDispFrameTime = GetNowHiPerformanceCount();
 	g_SystemInfo.FrameCounter = 0;
 	g_SystemInfo.DispFrameCount = 0;
+
+	bool Debug = mainTask_Controller->AddTask(new Task_Game);
 
 	return true;
 }
@@ -124,7 +130,7 @@ static void System_Terminate() {
 }
 
 bool System_StartTitle() {
-	return false;
+	return true;
 }
 
 void System_ExitGame() {
