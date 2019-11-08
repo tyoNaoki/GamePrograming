@@ -1,9 +1,8 @@
 #include "System.h"
 #include "DxLib.h"
 #include "Mathematics.h"
-#include "MainTask_Controller.h"
+#include "SeenController.h"
 #include <Windows.h>
-#include "Task_Game.h"
 
 // フェードアウト、フェードインの速度
 #define FADE_SPEED			(1.0f)
@@ -27,7 +26,7 @@ static void System_Terminate();
 
 static void System_FadeRender();
 
-static std::unique_ptr<MainTask_Controller>mainTask_Controller = std::make_unique<MainTask_Controller>();
+SeenController *seenController;
 
 static void System_FadeStep(
 	// 推移させる時間( 単位 : 秒 )
@@ -51,29 +50,29 @@ static void System_FadeStep(
 
 bool System_Main() {
 
+	seenController = new SeenController;
+
 	if (!System_Initialize()) {
+		delete seenController;
+
 		return false;
 	}
 
 	if (!System_MainLoop()) {
-		LONGLONG NowTime;
-		int i;
-
 		SetDrawScreen(DX_SCREEN_BACK);
-
-
-		return false;
 	}
 
 	System_Terminate();
 
-	//正常終了
+	delete seenController;
+
 	return true;
 }
 
-static bool System_Initialize() {
+static bool System_Initialize()
+{
 	int i;
-	char FilePath[MAX_PATH];
+//	char FilePath[MAX_PATH];
 
 	if (MessageBox(NULL, "ウインドウモードで起動しますか？", "画面モード確認", MB_YESNO) == IDYES) {
 		ChangeWindowMode(TRUE);
@@ -116,7 +115,7 @@ static bool System_Initialize() {
 	g_SystemInfo.FrameCounter = 0;
 	g_SystemInfo.DispFrameCount = 0;
 
-	bool Debug = mainTask_Controller->AddTask(new Task_Game);
+	bool Debug = seenController->AddTask(CTask_Game);
 
 	return true;
 }

@@ -30,10 +30,10 @@
     <ClCompile Include="Mathematics.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Task_Game.cpp">
+    <ClCompile Include="SeenController.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="MainTask_Controller.cpp">
+    <ClCompile Include="SeenGame.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -54,13 +54,13 @@
     <ClInclude Include="Mathematics.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="ITask.h">
+    <ClInclude Include="SeenController.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Task_Game.h">
+    <ClInclude Include="ISeen.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="MainTask_Controller.h">
+    <ClInclude Include="Seen_Game.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>

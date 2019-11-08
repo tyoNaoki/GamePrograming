@@ -127,11 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="MainTask_Controller.cpp" />
+    <ClCompile Include="SeenController.cpp" />
     <ClCompile Include="Mathematics.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="System.cpp" />
-    <ClCompile Include="Task_Game.cpp" />
+    <ClCompile Include="SeenGame.cpp" />
     <ClCompile Include="WinMain.cpp" />
     <ClCompile Include="UI.cpp" />
   </ItemGroup>
@@ -140,12 +140,12 @@
     <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ITask.h" />
-    <ClInclude Include="MainTask_Controller.h" />
+    <ClInclude Include="ISeen.h" />
+    <ClInclude Include="SeenController.h" />
     <ClInclude Include="Mathematics.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="System.h" />
-    <ClInclude Include="Task_Game.h" />
+    <ClInclude Include="Seen_Game.h" />
     <ClInclude Include="UI.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

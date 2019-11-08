@@ -2,7 +2,7 @@
 #include <DxLib.h>
 #include "System.h"
 
-class ITask
+class ISeen
 {
 public:
 	//‘€ì‚É‘Î‚·‚é‹““®‚ª¬Œ÷‚µ‚½‚©
@@ -19,7 +19,7 @@ public:
 	int ID = -1;
 	//•ÎˆÚ‘O‚ÌID
 	int BackID = -1;
-	 ITask() {};
-	 ~ITask() {};
+	 ISeen() {};
+	 ~ISeen() {};
 };
 
