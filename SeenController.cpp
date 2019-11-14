@@ -11,7 +11,7 @@ SeenController::SeenController()
 
 SeenController::~SeenController()
 {
-	for (auto it = m_TaskList.begin(); it != m_TaskList.end(); it++) {
+	for (auto it = m_SeenList.begin(); it != m_SeenList.end(); it++) {
 		delete *it;
 	}
 }
@@ -27,7 +27,7 @@ bool SeenController::AddTask(Category_Task Ctask) {
 	}
 	if (pTask != NULL)
 	{
-		m_TaskList.push_back(pTask);
+		m_SeenList.push_back(pTask);
 	}
 	return true;
 }
@@ -43,5 +43,5 @@ bool SeenController::AddTask(Category_Task Ctask) {
 //}
 
 void SeenController::MainUpdate(float Deltatime) {
-	CurrentTask->Update(Deltatime);
+	m_SeenList[CurrentSeenNumber]->Update(Deltatime);
 }
