@@ -7,7 +7,7 @@ class Seen_Game :
 {
 private:
 	void Update(float Deltatime)override;
-	void Draw(float Deltatime)override;
+	void Draw()override;
 public:
 	Seen_Game();
 	~Seen_Game();

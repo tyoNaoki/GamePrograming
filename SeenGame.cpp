@@ -16,5 +16,5 @@ void Seen_Game::Update(float Deltatime) {
 
 }
 
-void Seen_Game::Draw(float Deltatime) {
+void Seen_Game::Draw() {
 }

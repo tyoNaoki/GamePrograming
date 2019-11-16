@@ -3,27 +3,27 @@
 
 typedef enum _EObjectType {
 	Object,
-	Chara
+	Player,
+	Enemy
 };
 
-typedef struct _SObjecAngle {
+typedef struct _SObjectAngle {
 	float X;
 	float Y;
 	float Z;
 };
 
 typedef struct _SObjectBaseData {
+public:
 	VECTOR location = { 0,0,0 };
 	//Collisionがありかどうか
 	bool Collision = false;
 	//モデルデータ
 	int ModelHandle;
-	//オブジェクトのタイプ
-	_EObjectType *EObjectType;
 	//名前
 	char Name;
 	//角度
-	_SObjecAngle *SObjectAngle;
+	_SObjectAngle *SObjectAngle;
 };
 
 

@@ -26,6 +26,9 @@ static void System_Terminate();
 
 static void System_FadeRender();
 
+static void System_Render(float Step){
+};
+
 SeenController *seenController;
 
 static void System_FadeStep(
@@ -58,12 +61,16 @@ bool System_Main() {
 	seenController = new SeenController;
 
 	if (!System_Initialize()) {
+		System_Terminate();
 		delete seenController;
 
 		return false;
 	}
 	
 	if (!System_MainLoop()) {
+		System_Terminate();
+		delete seenController;
+
 		return false;
 	}
 
@@ -122,6 +129,8 @@ static bool System_Initialize()
 
 	bool Debug = seenController->AddTask(CTask_Game);
 
+
+
 	return true;
 }
 
@@ -154,7 +163,7 @@ static bool System_MainLoop() {
 			break;
 		}
 
-		System_Render();
+		System_Render(g_SystemInfo.StepTime);
 
 		//— ‰æ–Ê‚Ì“à—e‚ð•\‰æ–Ê‚É”½‰f‚³‚¹‚é
 		ScreenFlip();
@@ -206,19 +215,13 @@ static void System_Terminate() {
 }
 
 static bool System_Step(float Step) {
-
+	seenController->MainUpdate(Step);
 	return true;
-}
-
-static void System_Render() {
 }
 
 void System_ExitGame() {
 
 }
-
-
-
 
 
 

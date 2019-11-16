@@ -71,3 +71,5 @@ extern bool System_Main();
 
 extern void System_ExitGame();
 
+extern bool System_Step(float Step);
+
