@@ -11,15 +11,21 @@ public:
 	//‘€ì‚É‘Î‚·‚é‹““®‚ª¬Œ÷‚µ‚½‚©
 	bool Input()override;
 
+	void LoadAsset() override;
+protected:
 	void Draw()override;
-	Seen_Tytle();
+public:
+	Seen_Tytle(Render *renderer);
 	~Seen_Tytle();
+	bool IsEnd()const override;
+
+	void Barsize();
 
 private:
 	bool isEnd;
 	float Next;
-	float Barsize;
+	float barsize;
 	Vector2 framePosition;
-	Render renderer;
+	Render* renderer = new Render;
 };
 

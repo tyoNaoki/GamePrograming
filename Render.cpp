@@ -86,8 +86,7 @@ void Render::DrawTexture(const std::string & name, const Vector2 & position, con
 		scale.x, scale.y,
 		angle * Math::toRadian,
 		textures[name],
-		TRUE,
-		FALSE);
+		TRUE, FALSE);
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 255);
 }
 

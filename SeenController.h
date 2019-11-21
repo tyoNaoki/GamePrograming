@@ -2,23 +2,22 @@
 #include <DxLib.h>
 #include <vector>
 #include "ISeen.h"
-#include <memory>
+#include <unordered_map>
 
-enum Category_Task {
-	CTask_Game = 0,
-};
+enum Scene;
+#include "Render.h"
+
 
 class SeenController
 {
-	std::vector<ISeen*>m_SeenList;
 public:
 	SeenController();
 	~SeenController();
-	bool AddTask(Category_Task Ctask);
-	bool EraseTask(int EraseID);
-	void MainUpdate(float Deltatime);
-	ISeen GetCurrentTask_ptr() { return *m_SeenList[CurrentSeenNumber]; }
+	bool AddTask(Scene name,const ISeen *scene);
+	virtual void MainUpdate(float Deltatime);
 private:
-	int CurrentSeenNumber = 0;
+	ISeen *currentSeen;
+	Render render;
+	std::unordered_map<Scene, ISeen*>scenes;
 };
 

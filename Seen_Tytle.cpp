@@ -1,14 +1,24 @@
 #include "Seen_Tytle.h"
 #include "Input.h"
 
-
-Seen_Tytle::Seen_Tytle()
+ 
+Seen_Tytle::Seen_Tytle(Render *renderer)
+	: isEnd(false),renderer(renderer),Next(0),framePosition(Vector2(270,520 + Next)),barsize(0.0f)
 {
 }
 
 
 Seen_Tytle::~Seen_Tytle()
 {
+	delete renderer;
+}
+
+void Seen_Tytle::LoadAsset() {
+	renderer->LoadTexture("title", "Data\\2D\\Swordbout_logo.png");
+}
+
+bool Seen_Tytle::IsEnd()const {
+	return isEnd;
 }
 
 void Seen_Tytle::Update(float Deltatime) {
@@ -38,7 +48,7 @@ void Seen_Tytle::Draw() {
 	//Flame
 	//renderer.DrawTexture("frame", framePosition, Vector2(0, 0), Vector2(barSize, 0.6f), 0.0f, 0.4f);
 
-	renderer.DrawTexture("title", Vector2(256, 100));
+	renderer->DrawTexture("title", Vector2(256, 100));
 
 	//renderer.DrawTexture("Start", Vector2(512 - 100, 500), Vector2::Zero);
 	//renderer.DrawTexture("Exit", Vector2(512 - 80, 500 + 100), Vector2::Zero);

@@ -26,6 +26,7 @@ static void System_Terminate();
 
 static void System_FadeRender();
 
+
 static void System_Render(float Step){
 };
 
@@ -127,9 +128,9 @@ static bool System_Initialize()
 	g_SystemInfo.FrameCounter = 0;
 	g_SystemInfo.DispFrameCount = 0;
 
-	bool Debug = seenController->AddTask(CTask_Game);
 
-
+	//Render *render = new Render;
+	//bool Debug = seenController->AddTask(Scene::Title, new Seen_Tytle(render));
 
 	return true;
 }
