@@ -13,28 +13,76 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Character">
+      <UniqueIdentifier>{2050aec1-569d-40ee-94af-674f2d82c636}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Seen">
+      <UniqueIdentifier>{6c4c550b-cea1-409c-bc2c-ab681f5dc9b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render">
+      <UniqueIdentifier>{81d2b774-6089-4b42-a7a2-3b515d770569}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{56e80f94-d713-4f37-b555-764b42f69e31}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Player.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="UI.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="WinMain.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="System.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="ObjectBase.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterBase.cpp">
+      <Filter>Character</Filter>
+    </ClCompile>
+    <ClCompile Include="_Player.cpp">
+      <Filter>Character</Filter>
+    </ClCompile>
+    <ClCompile Include="SeenGame.cpp">
+      <Filter>Seen</Filter>
+    </ClCompile>
+    <ClCompile Include="Seen_Tytle.cpp">
+      <Filter>Seen</Filter>
+    </ClCompile>
+    <ClCompile Include="SeenController.cpp">
+      <Filter>Seen</Filter>
+    </ClCompile>
+    <ClCompile Include="Color.cpp">
+      <Filter>Render</Filter>
+    </ClCompile>
+    <ClCompile Include="Render.cpp">
+      <Filter>Render</Filter>
+    </ClCompile>
+    <ClCompile Include="Screen.cpp">
+      <Filter>Render</Filter>
+    </ClCompile>
     <ClCompile Include="Mathematics.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>Math</Filter>
     </ClCompile>
-    <ClCompile Include="Task_Game.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="Quaternion.cpp">
+      <Filter>Math</Filter>
     </ClCompile>
-    <ClCompile Include="MainTask_Controller.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="Matrix4.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Math.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector2.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector3.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Convert.cpp">
+      <Filter>Math</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -42,26 +90,65 @@
     <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Player.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="UI.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="System.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="ObjectBase.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="_Player.h">
+      <Filter>Character</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterBase.h">
+      <Filter>Character</Filter>
+    </ClInclude>
+    <ClInclude Include="Seen_Game.h">
+      <Filter>Seen</Filter>
+    </ClInclude>
+    <ClInclude Include="Seen_Tytle.h">
+      <Filter>Seen</Filter>
+    </ClInclude>
+    <ClInclude Include="SeenController.h">
+      <Filter>Seen</Filter>
+    </ClInclude>
+    <ClInclude Include="ISeen.h">
+      <Filter>Seen</Filter>
+    </ClInclude>
+    <ClInclude Include="Color.h">
+      <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Render.h">
+      <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Rect.h">
+      <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Screen.h">
+      <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Math.h">
+      <Filter>Math</Filter>
+    </ClInclude>
     <ClInclude Include="Mathematics.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>Math</Filter>
     </ClInclude>
-    <ClInclude Include="ITask.h">
-      <Filter>ヘッダー ファイル</Filter>
+    <ClInclude Include="Matrix4.h">
+      <Filter>Math</Filter>
     </ClInclude>
-    <ClInclude Include="Task_Game.h">
-      <Filter>ヘッダー ファイル</Filter>
+    <ClInclude Include="Quaternion.h">
+      <Filter>Math</Filter>
     </ClInclude>
-    <ClInclude Include="MainTask_Controller.h">
-      <Filter>ヘッダー ファイル</Filter>
+    <ClInclude Include="Vector2.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Convert.h">
+      <Filter>Math</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

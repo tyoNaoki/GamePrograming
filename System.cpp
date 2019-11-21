@@ -1,9 +1,8 @@
 #include "System.h"
 #include "DxLib.h"
 #include "Mathematics.h"
-#include "MainTask_Controller.h"
+#include "SeenController.h"
 #include <Windows.h>
-#include "Task_Game.h"
 
 // フェードアウト、フェードインの速度
 #define FADE_SPEED			(1.0f)
@@ -27,7 +26,10 @@ static void System_Terminate();
 
 static void System_FadeRender();
 
-static std::unique_ptr<MainTask_Controller>mainTask_Controller = std::make_unique<MainTask_Controller>();
+static void System_Render(float Step){
+};
+
+SeenController *seenController;
 
 static void System_FadeStep(
 	// 推移させる時間( 単位 : 秒 )
@@ -49,31 +51,40 @@ static void System_FadeStep(
 	}
 }
 
+static bool System_StartTitle() {
+
+	return true;
+}
+
 bool System_Main() {
 
+	seenController = new SeenController;
+
 	if (!System_Initialize()) {
+		System_Terminate();
+		delete seenController;
+
 		return false;
 	}
-
+	
 	if (!System_MainLoop()) {
-		LONGLONG NowTime;
-		int i;
-
-		SetDrawScreen(DX_SCREEN_BACK);
-
+		System_Terminate();
+		delete seenController;
 
 		return false;
 	}
 
 	System_Terminate();
 
-	//正常終了
+	delete seenController;
+
 	return true;
 }
 
-static bool System_Initialize() {
+static bool System_Initialize()
+{
 	int i;
-	char FilePath[MAX_PATH];
+//	char FilePath[MAX_PATH];
 
 	if (MessageBox(NULL, "ウインドウモードで起動しますか？", "画面モード確認", MB_YESNO) == IDYES) {
 		ChangeWindowMode(TRUE);
@@ -116,29 +127,101 @@ static bool System_Initialize() {
 	g_SystemInfo.FrameCounter = 0;
 	g_SystemInfo.DispFrameCount = 0;
 
-	bool Debug = mainTask_Controller->AddTask(new Task_Game);
+	bool Debug = seenController->AddTask(CTask_Game);
+
+
 
 	return true;
 }
 
 static bool System_MainLoop() {
-	return false;
+	int i;
+	LONGLONG NowTime;
+	SetDrawScreen(DX_SCREEN_BACK);
+
+	g_SystemInfo.StepTime = MAX_DELTA_TIME;
+	g_SystemInfo.PrevTime = GetNowHiPerformanceCount();
+	g_SystemInfo.StepTime = 1;
+
+	while (ProcessMessage() == 0) {
+		if(seenController)
+		//状態推移処理を行う回数分ループする
+		for (i = 0; i < g_SystemInfo.StepNum; i++) {
+			if (CheckHitKey(KEY_INPUT_ESCAPE) == 1 || g_SystemInfo.ExitGame) {
+				g_SystemInfo.ExitGame = true;
+				break;
+			}
+#ifdef _DEBUG
+
+#endif // DEBUG
+			if (!System_Step(g_SystemInfo.StepTime)) {
+				return false;
+			}
+		}
+		//ソフト終了
+		if (g_SystemInfo.ExitGame) {
+			break;
+		}
+
+		System_Render(g_SystemInfo.StepTime);
+
+		//裏画面の内容を表画面に反映させる
+		ScreenFlip();
+		//現在時間を所得する
+		NowTime = GetNowHiPerformanceCount();
+		//前回所得した時間からの経過時間を算出
+		g_SystemInfo.StepTime = (NowTime - g_SystemInfo.PrevTime) / 1000000.0f;
+
+		//状態推移処理を行う回数を算出する
+		g_SystemInfo.StepNum = (int)(g_SystemInfo.StepTime / MAX_DELTA_TIME);
+
+		//状態推移処理を行う回数が0回の場合は1回にする
+		if (g_SystemInfo.StepNum == 0) {
+			g_SystemInfo.StepNum = 1;
+		}
+		else {
+			//0回ではない場合は状態推移で進める時間を状態推移を行う回数で割る
+			g_SystemInfo.StepTime /= g_SystemInfo.StepNum;
+
+			//もし状態推移を行う回数が最大値を超えていたら最大値にする
+			if (g_SystemInfo.StepNum > MAX_FRAME_NUM) {
+				g_SystemInfo.StepNum = MAX_FRAME_NUM;
+			}
+		}
+
+		//今回の時間を保存する
+		g_SystemInfo.PrevTime = NowTime;
+
+		//フレームレート計測用のカウントを1足す
+		g_SystemInfo.FrameCounter++;
+
+		//前回フレームカウントを更新してから1秒経過したら表示用フレームカウントを更新する
+		if (NowTime - g_SystemInfo.BackDispFrameTime > 1000000) {
+			//表示用フレームカウントを更新
+			g_SystemInfo.DispFrameCount = g_SystemInfo.FrameCounter;
+			//計測用フレームカウントを初期化
+			g_SystemInfo.FrameCounter = 0;
+			//表示用フレームカウントを更新した時間を更新
+			g_SystemInfo.BackDispFrameTime = NowTime;
+		}
+		ClearDrawScreen();
+	}
+	//正常終了
+	return true;
 }
 
 static void System_Terminate() {
 	DxLib_End();
 }
 
-bool System_StartTitle() {
+static bool System_Step(float Step) {
+	seenController->MainUpdate(Step);
 	return true;
 }
 
 void System_ExitGame() {
 
 }
-
-
-
 
 
 
