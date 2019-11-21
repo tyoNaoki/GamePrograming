@@ -19,13 +19,17 @@ public:
 	~Seen_Tytle();
 	bool IsEnd()const override;
 
-	void Barsize();
+	Scene Next()override;
+
+	
+
+	void Barsize() {};
 
 private:
 	bool isEnd;
-	float Next;
-	float barsize;
+	float Nextpos;
 	Vector2 framePosition;
 	Render* renderer = new Render;
+	Scene NextScene = Scene::Battle;
 };
 

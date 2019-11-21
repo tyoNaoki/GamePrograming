@@ -4,6 +4,7 @@
 
 Input::Input()
 {
+	RegistKey();
 }
 
 Input &Input::GetInstance() {
@@ -13,6 +14,21 @@ Input &Input::GetInstance() {
 
 bool Input::GetCommand(Command command) {
 	return commandFunc[static_cast<int>(command)]();
+}
+
+void Input::RegistKey() {
+
+	commandFunc[0] = [&](void)->bool {return IsKeyBoardDown(KEY_INPUT_SPACE); };//Dicide
+	commandFunc[1] = [&](void)->bool {return IsKeyBoardDown(KEY_INPUT_BACK); };//Cancel
+	commandFunc[2] = [&](void)->bool {return IsKeyBoardDown(KEY_INPUT_UP); };//UP
+	commandFunc[3] = [&](void)->bool {return IsKeyBoardDown(KEY_INPUT_DOWN); };//Down
+	commandFunc[4] = [&](void)->bool {return IsKeyBoardDown(KEY_INPUT_LEFT); };
+	/*commandFunc[5] = [&](void)->bool {return IsKeyBoardDown(KEY_INPUT_SPACE); };
+	commandFunc[6] = [&](void)->bool {return IsKeyBoardDown(KEY_INPUT_SPACE); };
+	commandFunc[7] = [&](void)->bool {return IsKeyBoardDown(KEY_INPUT_SPACE); };
+	commandFunc[8] = [&](void)->bool {return IsKeyBoardDown(KEY_INPUT_SPACE); };
+	commandFunc[9] = [&](void)->bool {return IsKeyBoardDown(KEY_INPUT_SPACE); };
+	commandFunc[10] = [&](void)->bool {return IsKeyBoardDown(KEY_INPUT_SPACE); };*/
 }
 
 void Input::Update() {

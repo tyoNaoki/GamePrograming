@@ -3,7 +3,7 @@
 
  
 Seen_Tytle::Seen_Tytle(Render *renderer)
-	: isEnd(false),renderer(renderer),Next(0),framePosition(Vector2(270,520 + Next)),barsize(0.0f)
+	: isEnd(false),renderer(renderer),Nextpos(0),framePosition(Vector2(270,520 + Nextpos))
 {
 }
 
@@ -28,20 +28,25 @@ void Seen_Tytle::Update(float Deltatime) {
 	}
 
 	if (Input::GetInstance().GetCommand(Command::Down)) {
-		Next = Next + 100;
-	}
-	if (Input::GetInstance().GetCommand(Command::Up)) {
-		Next = Next + 100;
+		Nextpos = Nextpos + 100;
 	}
 
-	if (Next < 0) 
-		Next = 100;
-	if (Next > 100)
-		Next = 0;
+	if (Input::GetInstance().GetCommand(Command::Up)) {
+		Nextpos = Nextpos + 100;
+	}
+
+	if (Nextpos < 0) 
+		Nextpos = 100;
+	if (Nextpos > 100)
+		Nextpos = 0;
 }
 
 bool Seen_Tytle::Input() {
 	return true;
+}
+
+Scene Seen_Tytle::Next() {
+	return NextScene;
 }
 
 void Seen_Tytle::Draw() {

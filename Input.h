@@ -36,6 +36,8 @@ public:
 	bool IsKeyBoardDown(int key);  //キーボード DOWN
 	bool IsKeyBoardState(int key); //キーボード STATE
 
+	void Input::RegistKey();
+
 	static const int Max_Key_Num = 256;
 
 	using Keys = std::array<char, Max_Key_Num>;

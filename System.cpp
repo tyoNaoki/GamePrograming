@@ -3,6 +3,8 @@
 #include "Mathematics.h"
 #include "SeenController.h"
 #include <Windows.h>
+#include "Seen_Tytle.h"
+
 
 // フェードアウト、フェードインの速度
 #define FADE_SPEED			(1.0f)
@@ -23,9 +25,6 @@ static bool System_MainLoop();
 static bool System_Initialize();
 
 static void System_Terminate();
-
-static void System_FadeRender();
-
 
 static void System_Render(float Step){
 };
@@ -52,11 +51,6 @@ static void System_FadeStep(
 	}
 }
 
-static bool System_StartTitle() {
-
-	return true;
-}
-
 bool System_Main() {
 
 	seenController = new SeenController;
@@ -78,6 +72,7 @@ bool System_Main() {
 	System_Terminate();
 
 	delete seenController;
+
 
 	return true;
 }
@@ -121,16 +116,13 @@ static bool System_Initialize()
 	g_SystemInfo.Fade = false;
 	g_SystemInfo.FadeOutRate = 1.0f;
 
-	if (!System_StartTitle()) {
-		return false;
-	}
-
 	g_SystemInfo.FrameCounter = 0;
 	g_SystemInfo.DispFrameCount = 0;
 
-
-	//Render *render = new Render;
-	//bool Debug = seenController->AddTask(Scene::Title, new Seen_Tytle(render));
+	Render *render = new Render;
+	ISeen *tytle = new Seen_Tytle(render);
+	bool Debug = seenController->AddTask(Scene::Title,tytle);
+	seenController->Change(Scene::Title);
 
 	return true;
 }
