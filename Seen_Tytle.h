@@ -10,8 +10,9 @@ public:
 	void Update(float Deltatime)override;
 	//‘€ì‚É‘Î‚·‚é‹““®‚ª¬Œ÷‚µ‚½‚©
 	bool Input()override;
-
+	void Initialize() override;
 	void LoadAsset() override;
+	void Finalize() override;
 protected:
 	void Draw()override;
 public:
@@ -21,9 +22,7 @@ public:
 
 	Scene Next()override;
 
-	
-
-	void Barsize() {};
+	void BarSlide();
 
 private:
 	bool isEnd;
@@ -31,5 +30,6 @@ private:
 	Vector2 framePosition;
 	Render* renderer = new Render;
 	Scene NextScene = Scene::Battle;
+	float barSize;
 };
 

@@ -22,9 +22,10 @@ void Input::RegistKey() {
 	commandFunc[1] = [&](void)->bool {return IsKeyBoardDown(KEY_INPUT_BACK); };//Cancel
 	commandFunc[2] = [&](void)->bool {return IsKeyBoardDown(KEY_INPUT_UP); };//UP
 	commandFunc[3] = [&](void)->bool {return IsKeyBoardDown(KEY_INPUT_DOWN); };//Down
-	commandFunc[4] = [&](void)->bool {return IsKeyBoardDown(KEY_INPUT_LEFT); };
-	/*commandFunc[5] = [&](void)->bool {return IsKeyBoardDown(KEY_INPUT_SPACE); };
-	commandFunc[6] = [&](void)->bool {return IsKeyBoardDown(KEY_INPUT_SPACE); };
+	commandFunc[4] = [&](void)->bool {return IsKeyBoardDown(KEY_INPUT_LEFT); };//Left
+	commandFunc[5] = [&](void)->bool {return IsKeyBoardDown(KEY_INPUT_RIGHT); };//Right
+	commandFunc[6] = [&](void)->bool {return IsKeyBoardDown(KEY_INPUT_ESCAPE); };//Exit
+	/*
 	commandFunc[7] = [&](void)->bool {return IsKeyBoardDown(KEY_INPUT_SPACE); };
 	commandFunc[8] = [&](void)->bool {return IsKeyBoardDown(KEY_INPUT_SPACE); };
 	commandFunc[9] = [&](void)->bool {return IsKeyBoardDown(KEY_INPUT_SPACE); };

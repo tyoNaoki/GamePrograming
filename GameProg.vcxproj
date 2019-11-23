@@ -130,6 +130,7 @@
     <ClCompile Include="CharacterBase.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Convert.cpp" />
+    <ClCompile Include="FPS.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="Matrix4.cpp" />
@@ -155,6 +156,7 @@
     <ClInclude Include="CharacterBase.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Convert.h" />
+    <ClInclude Include="FPS.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="ISeen.h" />
     <ClInclude Include="Math.h" />

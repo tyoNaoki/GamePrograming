@@ -1,6 +1,7 @@
 #pragma once
 
 #include "DxLib.h"
+#include "FPS.h"
 
 // ゲーム画面の幅
 #define GAME_SCREEN_WIDTH			(1280)
@@ -25,14 +26,13 @@ typedef enum _EFontHandle
 	EFontHandle_Big,		// 大フォントハンドル
 	EFontHandle_Num			// フォントハンドルの数
 } EFontHandle;
-
 typedef struct _SystemInfo
 {
 	//一つ前のフレームの時間
 	LONGLONG PrevTime;
 
 	//状態推移処理で推移させる時間
-	float StepTime;
+	float DeltaTime;
 
 	//1フレームで状態推移処理を行う回数
 	int StepNum;
@@ -65,11 +65,10 @@ typedef struct _SystemInfo
 
 }SystemInfo;
 
-
+FPS *fps;
 
 extern bool System_Main();
 
-extern void System_ExitGame();
+void System_ExitGame();
 
-extern bool System_Step(float Step);
-
+extern bool System_Update(float DeltaTime);

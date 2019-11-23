@@ -13,7 +13,7 @@ enum class Command {
 	Down,
 	Left,
 	Right,
-	ShutDown,
+	Exit,
 	Pause,
 	Dash,
 	Jump,
