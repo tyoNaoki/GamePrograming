@@ -1,9 +1,10 @@
 #include "FPS.h"
 #include "DxLib.h"
 
-FPS::FPS(float fps)
-	: fps(60)
-	, AverageCount(60)
+#define MAX_FPS 60
+
+FPS::FPS()
+	: AverageCount(60)
 	, Delattime(0.0f)
 	, counter(0)
 	, StartTime(0)
@@ -30,12 +31,12 @@ void FPS::Update()
 
 void FPS::Draw()
 {
-	DrawFormatString(0, 0, GetColor(255, 255, 255), "SetFPS = %.1f : NowFPS = %.1f : frameTime = %.3f", fps, Delattime, Delattime / fps);
+	DrawFormatString(0, 0, GetColor(255, 255, 255), "SetFPS = %.1f : NowFPS = %.1f : frameTime = %.3f", MAX_FPS, Delattime, Delattime / MAX_FPS);
 }
 
 float FPS::GetDeltaTime()
 {
-	return Delattime / fps;
+	return Delattime / MAX_FPS;
 }
 
 float FPS::GetDeltaSecond() {
@@ -45,7 +46,7 @@ float FPS::GetDeltaSecond() {
 void FPS::Wait()
 {
 	int tookTime = GetNowCount() - StartTime;	//‚©‚©‚Á‚½ŽžŠÔ
-	int waitTime = counter * 1000 / fps - tookTime;	//‘Ò‚Â‚×‚«ŽžŠÔ
+	int waitTime = counter * 1000 / MAX_FPS - tookTime;	//‘Ò‚Â‚×‚«ŽžŠÔ
 	if (waitTime > 0) {
 		Sleep(waitTime);	//‘Ò‹@
 	}

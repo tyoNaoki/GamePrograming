@@ -1,23 +1,21 @@
 #pragma once
-#include "ISeen.h"
+#include "IScene.h"
 #include "Vector2.h"
 #include "Render.h"
 
-class Seen_Tytle :
-	public ISeen
+class Scene_Tytle :
+	public IScene
 {
 public:
 	void Update(float Deltatime)override;
-	//‘€ì‚É‘Î‚·‚é‹““®‚ª¬Œ÷‚µ‚½‚©
-	bool Input()override;
 	void Initialize() override;
 	void LoadAsset() override;
 	void Finalize() override;
 protected:
 	void Draw()override;
 public:
-	Seen_Tytle(Render *renderer);
-	~Seen_Tytle();
+	Scene_Tytle(Render *renderer);
+	~Scene_Tytle();
 	bool IsEnd()const override;
 
 	Scene Next()override;

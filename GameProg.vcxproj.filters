@@ -45,15 +45,6 @@
     <ClCompile Include="_Player.cpp">
       <Filter>Character</Filter>
     </ClCompile>
-    <ClCompile Include="SeenGame.cpp">
-      <Filter>Seen</Filter>
-    </ClCompile>
-    <ClCompile Include="Seen_Tytle.cpp">
-      <Filter>Seen</Filter>
-    </ClCompile>
-    <ClCompile Include="SeenController.cpp">
-      <Filter>Seen</Filter>
-    </ClCompile>
     <ClCompile Include="Color.cpp">
       <Filter>Render</Filter>
     </ClCompile>
@@ -87,6 +78,18 @@
     <ClCompile Include="FPS.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="ObjectManager.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneController.cpp">
+      <Filter>Seen</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_Tytle.cpp">
+      <Filter>Seen</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_Game.cpp">
+      <Filter>Seen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
@@ -107,18 +110,6 @@
     </ClInclude>
     <ClInclude Include="CharacterBase.h">
       <Filter>Character</Filter>
-    </ClInclude>
-    <ClInclude Include="Seen_Game.h">
-      <Filter>Seen</Filter>
-    </ClInclude>
-    <ClInclude Include="Seen_Tytle.h">
-      <Filter>Seen</Filter>
-    </ClInclude>
-    <ClInclude Include="SeenController.h">
-      <Filter>Seen</Filter>
-    </ClInclude>
-    <ClInclude Include="ISeen.h">
-      <Filter>Seen</Filter>
     </ClInclude>
     <ClInclude Include="Color.h">
       <Filter>Render</Filter>
@@ -155,6 +146,21 @@
     </ClInclude>
     <ClInclude Include="FPS.h">
       <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectManager.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene_Game.h">
+      <Filter>Seen</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene_Tytle.h">
+      <Filter>Seen</Filter>
+    </ClInclude>
+    <ClInclude Include="IScene.h">
+      <Filter>Seen</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneController.h">
+      <Filter>Seen</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -5,7 +5,7 @@ class FPS
 {
 public:
 
-	FPS(float fps = 60);
+	FPS();
 	~FPS();
 
 	void Update();
@@ -18,8 +18,6 @@ public:
 	void Wait();
 
 private:
-	//Å‘åƒtƒŒ[ƒ€
-	const float fps;
 	//•½‹Ï’l
 	const int AverageCount;
 

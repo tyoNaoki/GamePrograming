@@ -1,7 +1,6 @@
 #pragma once
 
 #include "DxLib.h"
-#include "FPS.h"
 
 // ÉQÅ[ÉÄâÊñ ÇÃïù
 #define GAME_SCREEN_WIDTH			(1280)
@@ -65,7 +64,6 @@ typedef struct _SystemInfo
 
 }SystemInfo;
 
-FPS *fps;
 
 extern bool System_Main();
 

@@ -9,12 +9,9 @@ enum  Scene {
 	Battle,
 };
 
-class ISeen
+class IScene
 {
 public:
-	//‘€ì‚É‘Î‚·‚é‹““®‚ª¬Œ÷‚µ‚½‚©
-	virtual bool Input() = 0;
-
 	virtual void Update(float Deltatime) =0;
 	virtual void Draw() =0;
 	virtual void LoadAsset() =0;
@@ -22,6 +19,6 @@ public:
 	virtual void Initialize()=0;
 	virtual void Finalize() =0;
 	virtual Scene Next() = 0;
-	virtual ~ISeen() {};
+	virtual ~IScene() {};
 };
 

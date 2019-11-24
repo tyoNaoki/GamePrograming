@@ -1,33 +1,33 @@
-#include "Seen_Tytle.h"
+#include "Scene_Tytle.h"
 #include "Input.h"
 #include "Math.h"
 
 static const float speed = 6.0f;
 static const float scale = 0.6f;
 
-Seen_Tytle::Seen_Tytle(Render *renderer)
+Scene_Tytle::Scene_Tytle(Render *renderer)
 	: isEnd(false),renderer(renderer),Nextpos(0),framePosition(Vector2(270,520 + Nextpos)),barSize(0.0f)
 {
 }
 
 
-Seen_Tytle::~Seen_Tytle()
+Scene_Tytle::~Scene_Tytle()
 {
 	delete renderer;
 }
 
-void Seen_Tytle::LoadAsset() {
+void Scene_Tytle::LoadAsset() {
 	renderer->LoadTexture("title", "Data\\2D\\Swordbout_logo.png");
 	renderer->LoadTexture("frame", "Data\\2D\\SlidBar.png");
 	renderer->LoadTexture("Start", "Data\\2D\\Start.png");
 	renderer->LoadTexture("Exit", "Data\\2D\\Exit.png");
 }
 
-bool Seen_Tytle::IsEnd()const {
+bool Scene_Tytle::IsEnd()const {
 	return isEnd;
 }
 
-void Seen_Tytle::Update(float Deltatime) {
+void Scene_Tytle::Update(float Deltatime) {
 
 	BarSlide();
 
@@ -57,15 +57,12 @@ void Seen_Tytle::Update(float Deltatime) {
 	framePosition = Vector2(350, 520 + Nextpos);
 }
 
-bool Seen_Tytle::Input() {
-	return true;
+
+Scene Scene_Tytle::Next() {
+	return Scene::Battle;
 }
 
-Scene Seen_Tytle::Next() {
-	return NextScene;
-}
-
-void Seen_Tytle::Draw() {
+void Scene_Tytle::Draw() {
 	//Flame
 	renderer->DrawTexture("frame", framePosition, Vector2(0, 0), Vector2(barSize, 0.6f), 0.0f, 0.4f);
 
@@ -73,20 +70,18 @@ void Seen_Tytle::Draw() {
 
 	renderer->DrawTexture("Start", Vector2(512 - 100, 500), Vector2::Zero);
 	renderer->DrawTexture("Exit", Vector2(512 - 80, 500 + 100), Vector2::Zero);
-
-	//renderer.DrawTexture("bar", Vector2(0, Screen::Height - 30));
 }
 
-void Seen_Tytle::Initialize() {
+void Scene_Tytle::Initialize() {
 	isEnd = false;
 	Nextpos = 0;
+	renderer->LoadTexture("fade", "Data\\2D\\fade.png");
 }
 
-void Seen_Tytle::BarSlide() {
+void Scene_Tytle::BarSlide() {
 	barSize += scale / speed;
 	barSize = Math::Clamp<float>(barSize, 0.0f, scale);
 }
 
-void Seen_Tytle::Finalize() {
-	renderer->Clear();
+void Scene_Tytle::Finalize() {
 }

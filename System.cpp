@@ -1,10 +1,11 @@
 #include "System.h"
 #include "DxLib.h"
 #include "Mathematics.h"
-#include "SeenController.h"
+#include "SceneController.h"
 #include <Windows.h>
-#include "Seen_Tytle.h"
+#include "Scene_Tytle.h"
 #include "Input.h"
+#include "FPS.h"
 
 
 // フェードアウト、フェードインの速度
@@ -31,7 +32,9 @@ static void System_Render(float Step);
 
 static void OldFPS();
 
-SeenController *seenController;
+SceneController *sceneController;
+
+FPS *fps;
 
 static void System_FadeStep(
 	// 推移させる時間( 単位 : 秒 )
@@ -55,25 +58,25 @@ static void System_FadeStep(
 
 bool System_Main() {
 
-	seenController = new SeenController();
+	sceneController = new SceneController();
 
 	fps = new FPS();
 
 	if (!System_Initialize()) {
 		System_Terminate();
-		delete seenController;
+		delete sceneController;
 
 		return false;
 	}
 	
 	if (!System_MainLoop()) {
 		System_Terminate();
-		delete seenController;
+		delete sceneController;
 
 		return false;
 	}
 
-	delete seenController;
+	delete sceneController;
 
 	System_Terminate();
 
@@ -122,7 +125,7 @@ static bool System_Initialize()
 	g_SystemInfo.FrameCounter = 0;
 	g_SystemInfo.DispFrameCount = 0;
 
-	seenController->Initialize();
+	sceneController->Initialize();
 
 	return true;
 }
@@ -137,9 +140,12 @@ static bool System_MainLoop() {
 
 	while (ProcessMessage() == 0 && g_SystemInfo.ExitGame == false && Input::GetInstance().GetCommand(Command::Exit) == false){
 		Input::GetInstance().Update();
-		if(seenController)
+		fps->Update();
+		if (!sceneController) {
+			return false;
+		}
 		//状態推移処理を行う回数分ループする
-		for (i = 0; i < g_SystemInfo.StepNum; i++) {
+		/*for (i = 0; i < g_SystemInfo.StepNum; i++) {*/
 #ifdef _DEBUG
 
 #endif // DEBUG
@@ -147,10 +153,11 @@ static bool System_MainLoop() {
 			if (!System_Update(fps->GetDeltaTime())) {
 				return false;
 			}
-		}
+		//}
 
 		System_Render(fps->GetDeltaTime());
 
+		fps->Wait();
 		//裏画面の内容を表画面に反映させる
 		ScreenFlip();
 		
@@ -168,12 +175,12 @@ static void System_Terminate() {
 }
 
 static bool System_Update(float DeltaTime) {
-	seenController->MainUpdate(DeltaTime);
+	sceneController->MainUpdate(DeltaTime);
 	return true;
 }
 
 static void System_Render(float Step) {
-	seenController->MainRender(Step);
+	sceneController->MainRender(Step);
 }
 
 void System_ExitGame() {
