@@ -11,11 +11,11 @@ class _Player :
 private:
 	void Movement(char *Key);
 	_SObjectBaseData SObjectBaseData;
-	_SPlayerData *SPlayerData;
 public:
 	void Update(float Deltatime)override;
-	_Player(_SPlayerData*playerdata);
+	_Player(_SPlayerData &playerdata);
 	_Player();
 	~_Player();
+	_SPlayerData SPlayerData;
 };
 

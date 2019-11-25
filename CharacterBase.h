@@ -7,11 +7,10 @@ typedef struct _SCharacterInfo {
 	
 };
 
-class CharacterBase : ObjectBase
+class CharacterBase : public ObjectBase
 {
 public:
-	virtual void Update(float Deltatime) {};
-	CharacterBase();
-	~CharacterBase();
+	virtual void Update(float Deltatime) =0;
+	virtual ~CharacterBase() {};
 };
 

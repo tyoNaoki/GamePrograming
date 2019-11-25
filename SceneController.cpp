@@ -10,10 +10,8 @@ SceneController::SceneController() :alpha(1.0f),IsFinishedInitialize(false)
 
 SceneController::~SceneController()
 {
-	if (IsFinishedInitialize) {
-		for (auto itr = scenes.begin(); itr != scenes.end(); itr++) {
-			delete itr->second;
-		}
+	for (auto itr = scenes.begin(); itr != scenes.end(); itr++) {
+		delete itr->second;
 	}
 }
 
@@ -61,9 +59,9 @@ void SceneController::MainRender(float Deltatime) {
 void SceneController::Initialize() {
 	Finalize();
 	scenes.clear();
-	render = new Render();
-	Tytle = new Scene_Tytle(render);
-	Game = new Scene_Game(render);
+
+	Tytle = new Scene_Tytle(new Render());
+	Game = new Scene_Game(new Render());
 
 	AddScene(Scene::Title, Tytle);
 	AddScene(Scene::Battle, Game);

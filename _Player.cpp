@@ -1,7 +1,7 @@
 #include "_Player.h"
 #include "Dxlib.h"
 
-_Player::_Player(_SPlayerData *playerdata){
+_Player::_Player(_SPlayerData &playerdata){
 	SPlayerData = playerdata;
 	bool Debug = SObjectBaseData.ModelHandle = MV1LoadModel("Data\\Character\\Player\\PC.mv1");
 	SObjectBaseData.location.y = 100;

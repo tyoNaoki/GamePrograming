@@ -65,6 +65,7 @@ bool System_Main() {
 	if (!System_Initialize()) {
 		System_Terminate();
 		delete sceneController;
+		delete fps;
 
 		return false;
 	}
@@ -72,11 +73,13 @@ bool System_Main() {
 	if (!System_MainLoop()) {
 		System_Terminate();
 		delete sceneController;
+		delete fps;
 
 		return false;
 	}
 
 	delete sceneController;
+	delete fps;
 
 	System_Terminate();
 
