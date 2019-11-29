@@ -5,7 +5,8 @@
 #define Charafolder "Data//Character"
 #define Playerfolder "//Player//"
 
-Scene_Game::Scene_Game(Render *render,StageBase *firstStage,World *world):isEnd(false),render(render),CurrentStage(firstStage),worlds(world)
+Scene_Game::Scene_Game(Render *render,StageBase *firstStage,World *world)
+	: isEnd(false),render(render),CurrentStage(firstStage),worlds(world)
 {
 }
 
@@ -22,6 +23,7 @@ void Scene_Game::LoadAsset() {
 }
 
 void Scene_Game::Update(float Deltatime) {
+	worlds->Update(Deltatime);
 }
 
 void Scene_Game::Draw(float Deltatime) {
@@ -33,7 +35,6 @@ void Scene_Game::Initialize() {
 }
 
 void Scene_Game::Finalize() {
-
 }
 
 Scene Scene_Game::Next() {

@@ -11,21 +11,22 @@ class ObjectManager;
 class StageBase;
 enum class GroupCategory;
 
-class World 
+class World
 {
 public:
 	World();
 	~World();
 	void Initialize();
-	void Update(float Deltatime) ;
-	void Draw(float Delattime,Render &renderer);
+	void Update(float Deltatime);
+	void Draw(float Delattime, Render &renderer);
 	void AddGroup(GroupCategory name, _CharaGroup *Group);
 	template<typename T>
 	void AddTarget(GroupCategory name, std::string TargetName, T *target);
 	Vector3 GetStartPosition();
+	GameTurn GetTurn();
 private:
 	StageBase *stageBase;
 	ObjectManager *objectManager;
-	CharacterBase *player;
+	StageBase *curretnStage;
 };
 

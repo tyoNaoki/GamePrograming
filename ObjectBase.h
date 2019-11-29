@@ -4,26 +4,8 @@
 #include "World.h"
 #include "Vector3.h"
 
-typedef struct ObjectAngle {
-	float X;
-	float Y;
-	float Z;
-};
 
 class World;
-
-typedef struct ObjectBaseData {
-public:
-	VECTOR location = { 0,0,0 };
-	//Collisionがありかどうか
-	bool Collision = false;
-	//モデルデータ
-	int ModelHandle;
-	//名前
-	char Name;
-	//角度
-	ObjectAngle *SObjectAngle;
-};
 
 class ObjectBase
 {

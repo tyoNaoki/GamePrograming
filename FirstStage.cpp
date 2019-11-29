@@ -1,5 +1,9 @@
 #include "FirstStage.h"
 #include "GameTurn.h"
+#include "CharacterBase.h"
+#include "ObjectManager.h"
+#include "ObjectBase.h"
+#include "World.h"
 
 
 FirstStage::FirstStage()//:DefenceTime(DefaultDefenceTime),BreakTime(DefaultBreakTime)
@@ -11,8 +15,8 @@ FirstStage::~FirstStage()
 {
 }
 
-void FirstStage::StageInitialize()
-{
+void FirstStage::StageInitialize(){
+	LoadAsset();
 }
 
 void FirstStage::Finalize()
@@ -30,9 +34,8 @@ Vector3 FirstStage::GetEnemySpawnPos()
 	return Vector3();
 }
 
-void FirstStage::LoadAsset()
-{
-
+void FirstStage::LoadAsset(){
+	
 }
 
 void FirstStage::TurnFinalize(GameTurn CurrentTurn) {
@@ -96,18 +99,20 @@ void FirstStage::Draw(float Deltatime)
 	}
 }
 
-void FirstStage::Upgrade()
-{
+void FirstStage::Upgrade(){
 }
 
-void FirstStage::DownGrade()
-{
+void FirstStage::DownGrade(){
 
 }
 
 void FirstStage::GameOver()
 {
 
+}
+
+GameTurn FirstStage::GetTurn() {
+	return Turn;
 }
 
 int FirstStage::GetTime()
@@ -120,6 +125,6 @@ int FirstStage::GetRound()
 	return NowRound;
 }
 
-int FirstStage::RemainTurn() {
+int FirstStage::RemainRound() {
 	return MaxRound - NowRound;
 }

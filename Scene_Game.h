@@ -6,6 +6,8 @@
 #include "StageBase.h"
 
 class World;
+class StageBase;
+class Render;
 
 class Scene_Game :
 	public IScene
@@ -29,6 +31,5 @@ private:
 	Render *render;
 	World *worlds;
 	StageBase *CurrentStage;
-
 };
 

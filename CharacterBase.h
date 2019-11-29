@@ -4,11 +4,6 @@
 #include "ObjectBase.h"
 #include "Vector3.h"
 
-typedef struct _SCharacterInfo {
-	bool UseFlag;
-	int ModelHandle;
-};
-
 class ObjectBase;
 
 class CharacterBase

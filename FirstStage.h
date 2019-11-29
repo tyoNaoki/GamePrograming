@@ -29,7 +29,9 @@ public:
 	virtual void GameOver()override;
 	virtual int GetTime()override;
 	virtual int GetRound()override;
-	virtual int RemainTurn()override;
+	virtual int RemainRound()override;
+
+	GameTurn GetTurn()override;
 
 	virtual void TurnInitialize(GameTurn NextTurn)override;
 	virtual void TurnFinalize(GameTurn CurrentTurn)override;

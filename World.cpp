@@ -2,18 +2,19 @@
 #include "_CharaGroup.h"
 
 
-World::World()
-{
+World::World():objectManager(new ObjectManager()){
 }
 
 
 World::~World()
 {
+	//delete stageBase;
+	delete objectManager;
 }
 
 void World::Initialize()
 {
-
+	objectManager->Initialize();
 }
 
 void World::AddGroup(GroupCategory name, _CharaGroup *Group) {
@@ -31,6 +32,10 @@ void World::Update(float Deltatime)
 	objectManager->Update(Deltatime);
 }
 
+GameTurn World::GetTurn() {
+	return stageBase->GetTurn();
+}
+
 void World::Draw(float Delattime, Render &renderer)
 {
 	stageBase->Draw(Delattime);
@@ -39,5 +44,5 @@ void World::Draw(float Delattime, Render &renderer)
 
 Vector3 World::GetStartPosition()
 {
-	return Vector3();
+	return stageBase->GetStartPotion();
 }
