@@ -17,7 +17,7 @@ Scene_Tytle::~Scene_Tytle()
 }
 
 void Scene_Tytle::LoadAsset() {
-	renderer->LoadTexture("title", "Data\\2D\\Swordbout_logo.png");
+	renderer->LoadTexture("title", "Data\\2D\\ROGO.png");
 	renderer->LoadTexture("frame", "Data\\2D\\SlidBar.png");
 	renderer->LoadTexture("Start", "Data\\2D\\Start.png");
 	renderer->LoadTexture("Exit", "Data\\2D\\Exit.png");
@@ -62,11 +62,12 @@ Scene Scene_Tytle::Next() {
 	return Scene::Battle;
 }
 
-void Scene_Tytle::Draw() {
+void Scene_Tytle::Draw(float Deltatime) {
 	//Flame
+	renderer->DrawColorBox(Vector2(1920, 1080), color.r,color.g,color.b);
 	renderer->DrawTexture("frame", framePosition, Vector2(0, 0), Vector2(barSize, 0.6f), 0.0f, 0.4f);
 
-	renderer->DrawTexture("title", Vector2(0, 70));
+	renderer->DrawTexture("title", Vector2(80, -90));
 
 	renderer->DrawTexture("Start", Vector2(512 - 100, 500), Vector2::Zero);
 	renderer->DrawTexture("Exit", Vector2(512 - 80, 500 + 100), Vector2::Zero);
@@ -75,7 +76,7 @@ void Scene_Tytle::Draw() {
 void Scene_Tytle::Initialize() {
 	isEnd = false;
 	Nextpos = 0;
-	renderer->LoadTexture("fade", "Data\\2D\\fade.png");
+	renderer->LoadTexture("fade", "Data\\2D\\fade.bmp");
 }
 
 void Scene_Tytle::BarSlide() {

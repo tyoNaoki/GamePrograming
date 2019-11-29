@@ -6,14 +6,14 @@ enum  Scene {
 	None,
 	Title,
 	Menu,
-	Battle,
+	Battle
 };
 
 class IScene
 {
 public:
 	virtual void Update(float Deltatime) =0;
-	virtual void Draw() =0;
+	virtual void Draw(float Deltatime) =0;
 	virtual void LoadAsset() =0;
 	virtual bool IsEnd() const = 0;
 	virtual void Initialize()=0;

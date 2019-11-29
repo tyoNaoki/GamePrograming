@@ -2,6 +2,10 @@
 #include "IScene.h"
 #include "Render.h"
 #include <DxLib.h>
+#include "World.h"
+#include "StageBase.h"
+
+class World;
 
 class Scene_Game :
 	public IScene
@@ -12,9 +16,9 @@ private:
 	void LoadAsset() override;
 	void Finalize() override;
 protected:
-	void Draw()override;
+	void Draw(float Deltatime)override;
 public:
-	Scene_Game(Render *renderer);
+	Scene_Game(Render *renderer,StageBase *firstStage,World *world);
 	~Scene_Game();
 	bool IsEnd()const override;
 
@@ -23,7 +27,8 @@ public:
 private:
 	bool isEnd;
 	Render *render;
+	World *worlds;
+	StageBase *CurrentStage;
 
-	Matrix4 PlayerPos = Matrix4();
 };
 

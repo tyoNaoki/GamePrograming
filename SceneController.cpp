@@ -1,6 +1,8 @@
 #include "SceneController.h"
 #include <DxLib.h>
 #include "IScene.h"
+#include "World.h"
+#include "FirstStage.h"
 #include <memory>
 
 
@@ -48,20 +50,20 @@ void SceneController::Change(Scene name) {
 	alpha = 1.0f;
 	currentSeen = scenes[name];
 	currentSeen->LoadAsset();
+	currentSeen->Initialize();
 }
 
 void SceneController::MainRender(float Deltatime) {
 	if (!currentSeen->IsEnd()) {
-		currentSeen->Draw();
+		currentSeen->Draw(Deltatime);
 	}
 }
 
 void SceneController::Initialize() {
-	Finalize();
 	scenes.clear();
 
-	Tytle = new Scene_Tytle(new Render());
-	Game = new Scene_Game(new Render());
+	Scene_Tytle *Tytle = new Scene_Tytle(new Render());
+	Scene_Game *Game = new Scene_Game(new Render(), new FirstStage(), new World());
 
 	AddScene(Scene::Title, Tytle);
 	AddScene(Scene::Battle, Game);
@@ -70,6 +72,11 @@ void SceneController::Initialize() {
 }
 
 void SceneController::Finalize() {
+	/*if (IsFinishedInitialize) {
+		currentSeen->Finalize();
+		currentSeen = nullptr;
+	}*/
 }
+
 
 

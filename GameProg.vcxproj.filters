@@ -25,6 +25,24 @@
     <Filter Include="Math">
       <UniqueIdentifier>{56e80f94-d713-4f37-b555-764b42f69e31}</UniqueIdentifier>
     </Filter>
+    <Filter Include="World">
+      <UniqueIdentifier>{15925d35-0055-4e89-8fc0-d9de2e29556a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Collision">
+      <UniqueIdentifier>{84a5c163-e62f-4ce2-8153-38552d2182ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Collision\Capsule">
+      <UniqueIdentifier>{00ac0d27-0406-445c-a760-4d5faaf4affb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Collision\Plane">
+      <UniqueIdentifier>{38dab592-02c4-45ed-a2ea-5f7e82b93ded}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Collision\Ray">
+      <UniqueIdentifier>{8b7fd2af-5e90-470d-8c2c-768c6c847dbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Collision\Line">
+      <UniqueIdentifier>{8657f171-b70b-4b4e-97b0-e802c2e785f7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinMain.cpp">
@@ -35,9 +53,6 @@
     </ClCompile>
     <ClCompile Include="Input.cpp">
       <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="_Player.cpp">
-      <Filter>Character</Filter>
     </ClCompile>
     <ClCompile Include="Color.cpp">
       <Filter>Render</Filter>
@@ -72,9 +87,6 @@
     <ClCompile Include="FPS.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="ObjectManager.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="SceneController.cpp">
       <Filter>Seen</Filter>
     </ClCompile>
@@ -84,8 +96,44 @@
     <ClCompile Include="Scene_Game.cpp">
       <Filter>Seen</Filter>
     </ClCompile>
-    <ClCompile Include="_CharaGroup.cpp">
+    <ClCompile Include="EnemyBase.cpp">
+      <Filter>Character</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemytemplate.cpp">
       <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterBase.cpp">
+      <Filter>Character</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Character</Filter>
+    </ClCompile>
+    <ClCompile Include="_CharaGroup.cpp">
+      <Filter>Character</Filter>
+    </ClCompile>
+    <ClCompile Include="World.cpp">
+      <Filter>World</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectManager.cpp">
+      <Filter>Character</Filter>
+    </ClCompile>
+    <ClCompile Include="FirstStage.cpp">
+      <Filter>World</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeBase.cpp">
+      <Filter>Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Capsule.cpp">
+      <Filter>Collision\Capsule</Filter>
+    </ClCompile>
+    <ClCompile Include="Plane.cpp">
+      <Filter>Collision\Plane</Filter>
+    </ClCompile>
+    <ClCompile Include="Ray.cpp">
+      <Filter>Collision\Ray</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -96,14 +144,8 @@
     <ClInclude Include="System.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="ObjectBase.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Input.h">
       <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="_Player.h">
-      <Filter>Character</Filter>
     </ClInclude>
     <ClInclude Include="CharacterBase.h">
       <Filter>Character</Filter>
@@ -144,9 +186,6 @@
     <ClInclude Include="FPS.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="ObjectManager.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Scene_Game.h">
       <Filter>Seen</Filter>
     </ClInclude>
@@ -159,8 +198,53 @@
     <ClInclude Include="SceneController.h">
       <Filter>Seen</Filter>
     </ClInclude>
-    <ClInclude Include="_CharaGroup.h">
+    <ClInclude Include="EnemyBase.h">
+      <Filter>Character</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemytemplate.h">
       <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Character</Filter>
+    </ClInclude>
+    <ClInclude Include="_CharaGroup.h">
+      <Filter>Character</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectManager.h">
+      <Filter>Character</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectBase.h">
+      <Filter>Character</Filter>
+    </ClInclude>
+    <ClInclude Include="World.h">
+      <Filter>World</Filter>
+    </ClInclude>
+    <ClInclude Include="StageBase.h">
+      <Filter>World</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTurn.h">
+      <Filter>World</Filter>
+    </ClInclude>
+    <ClInclude Include="FirstStage.h">
+      <Filter>World</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="HitInfo.h">
+      <Filter>Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeBase.h">
+      <Filter>Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Capsule.h">
+      <Filter>Collision\Capsule</Filter>
+    </ClInclude>
+    <ClInclude Include="Plane.h">
+      <Filter>Collision\Plane</Filter>
+    </ClInclude>
+    <ClInclude Include="Ray.h">
+      <Filter>Collision\Ray</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

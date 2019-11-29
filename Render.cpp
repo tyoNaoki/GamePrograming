@@ -103,7 +103,7 @@ void Render::DrawRectangle(const std::string & name, const Vector2 & position, c
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 255);
 }
 
-void Render::DrawFont(const std::string & text, const Vector2 & position, const Color & color, const std::string & name)
+void Render::DrawFont(const std::string & text, const Vector2 & position, const _Color & color, const std::string & name)
 {
 	DrawStringToHandle(
 		position.x, position.y,
@@ -130,7 +130,12 @@ void Render::DrawNumber(const std::string & name, const Vector2 & position, int 
 	}
 }
 
-void Render::DrawBillboard(const std::string & name, const Vector3 & position, const Vector2 & center, float scale, float angle, float alpha, const Color& color)
+void Render::DrawColorBox(const Vector2 & Size, float &r,float &g ,float &b)
+{
+	DrawBox(0, 0, Size.x, Size.y, GetColor(r * 255.0f,g * 255.0f, b * 255.0f), TRUE);
+}
+
+void Render::DrawBillboard(const std::string & name, const Vector3 & position, const Vector2 & center, float scale, float angle, float alpha, const _Color& color)
 {
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, static_cast<int>(alpha * 255.0f));
 

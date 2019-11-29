@@ -60,10 +60,11 @@ public:
 
 	void DrawTexture(const std::string& name, const Vector2& position = Vector2(0, 0), const Vector2& center = Vector2(0, 0), const Vector2& scale = Vector2(1, 1), float angle = 0.0f, float alpha = 1.0f);
 	void DrawRectangle(const std::string& name, const Vector2& position = Vector2(0, 0), const Rect& rect = Rect(0, 0, 1, 1), float alpha = 1.0f);
-	void DrawFont(const std::string& text, const Vector2& position, const Color& color = Color::White, const std::string& name = "Default");
+	void DrawFont(const std::string& text, const Vector2& position, const _Color& color = _Color::White, const std::string& name = "Default");
 	void DrawNumber(const std::string& name, const Vector2& position, int number, int width, int height, int digit = 0, char fill = '0');
+	void DrawColorBox(const Vector2& Size, float &r, float &g, float &b);
 
-	void DrawBillboard(const std::string& name, const Vector3& position, const Vector2& center = Vector2::Zero, float scale = 1.0f, float angle = 0.0f, float alpha = 1.0f, const Color& color = Color::White);
+	void DrawBillboard(const std::string& name, const Vector3& position, const Vector2& center = Vector2::Zero, float scale = 1.0f, float angle = 0.0f, float alpha = 1.0f, const _Color& color = _Color::White);
 	void DrawNumberBillboard(const std::string& name, const Vector3& position, int number, int width, int height, float alpha = 1.0f);
 
 	/// <summary> äTóv : 3DÉÇÉfÉãÇÃï`âÊÅ@</summary>

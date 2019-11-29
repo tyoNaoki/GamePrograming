@@ -23,10 +23,8 @@ public:
 	virtual void Finalize();
 private:
 	IScene *currentSeen;
-	Render *render;
+	Render *render;	
 	std::unordered_map<Scene, IScene*>scenes;
 	float alpha;
-	Scene_Tytle *Tytle;
-	Scene_Game *Game;
-	bool IsFinishedInitialize ;
+	bool IsFinishedInitialize;
 };

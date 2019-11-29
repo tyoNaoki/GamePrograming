@@ -2,6 +2,7 @@
 #include <Dxlib.h>
 #include <array>
 #include <functional>
+#include "Vector3.h"
 #include "Math.h"
 
 
@@ -26,10 +27,12 @@ private:
 	Input();
 	~Input();
 
+	Vector3 velocity;
 public:
 	static Input& GetInstance();
 
 	void Update();
+	Vector3 GetVelocity();
 
 	/*　キーボード関係のキー入力　  */
 	bool IsKeyBoardUp(int key);    //キーボード UP

@@ -67,6 +67,10 @@ bool Input::IsKeyBoardState(int key) {
 	return keyState;
 }
 
+Vector3 Input::GetVelocity() {
+	return velocity;
+}
+
 Input::~Input()
 {
 }

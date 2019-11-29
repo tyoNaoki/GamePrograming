@@ -1,9 +1,11 @@
+#pragma once
+
 #include"Math.h"
 #include<DxLib.h>
 
-class Color {
+class _Color {
 public:
-	Color() {
+	_Color() {
 		r = 0.0f;
 		g = 0.0f;
 		b = 0.0f;
@@ -14,7 +16,7 @@ public:
 	/// <param name="g">óŒ(0.0f ~ 1.0f)</param>
 	/// <param name="b">ê¬(0.0f ~ 1.0f)</param>
 	/// <param name="a">ìßñæìx(0.0f ~ 1.0f)</param>
-	Color(float r, float g, float b, float a)
+	_Color(float r, float g, float b, float a)
 		: r(Math::Clamp(r, 0.0f, 1.0f))
 		, g(Math::Clamp(g, 0.0f, 1.0f))
 		, b(Math::Clamp(b, 0.0f, 1.0f))
@@ -25,12 +27,12 @@ public:
 		return GetColor((int)(r * 255.0f), (int)(g * 255.0f), (int)(b * 255.0f));
 	}
 
-	static const Color Red;
-	static const Color Green;
-	static const Color Blue;
-	static const Color Yellow;
-	static const Color Black;
-	static const Color White;
+	static const _Color Red;
+	static const _Color Green;
+	static const _Color Blue;
+	static const _Color Yellow;
+	static const _Color Black;
+	static const _Color White;
 
 public:
 	float r, g, b, a;
