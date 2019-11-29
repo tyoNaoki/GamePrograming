@@ -129,6 +129,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BoundingSphere.cpp" />
     <ClCompile Include="Capsule.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="Color.cpp" />
@@ -137,6 +138,7 @@
     <ClCompile Include="Enemytemplate.cpp" />
     <ClCompile Include="FPS.cpp" />
     <ClCompile Include="Input.cpp" />
+    <ClCompile Include="Line.cpp" />
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="Matrix4.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
@@ -165,6 +167,7 @@
     <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BoundingSphere.h" />
     <ClInclude Include="Capsule.h" />
     <ClInclude Include="CharacterBase.h" />
     <ClInclude Include="Collision.h" />
@@ -174,9 +177,11 @@
     <ClInclude Include="Enemytemplate.h" />
     <ClInclude Include="FPS.h" />
     <ClInclude Include="GameTurn.h" />
+    <ClInclude Include="ShapeType.h" />
     <ClInclude Include="HitInfo.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="IScene.h" />
+    <ClInclude Include="Line.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="Matrix4.h" />
     <ClInclude Include="ObjectBase.h" />

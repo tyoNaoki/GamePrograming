@@ -1,12 +1,9 @@
-#include "Ray.h"
+#include"Ray.h"
 
-
-
-Ray::Ray()
-{
+Ray::Ray(const Vector3& position, const Vector3& direction)
+	: position(position)
+	, direction(direction) {
 }
 
-
-Ray::~Ray()
-{
+Ray::~Ray() {
 }

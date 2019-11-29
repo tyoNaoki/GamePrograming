@@ -1,17 +1,20 @@
 #pragma once
 
 #include"Vector3.h"
-#include"Matrix4.h"
+class Matrix4;
+class HitInfo;
+
 #include"ShapeBase.h"
 
-/// <summary> 概要 : カプセル　</summary>
-class Capsule : public ShapeBase {
+//境界円
+class BoundingSphere : public ShapeBase {
 public:
-	/// <param name="p1">始点</param>
-	/// <param name="p2">終点</param>
+	/// <param name="center">中心座標</param>
 	/// <param name="radius">半径</param>
-	Capsule(const Vector3& p1, const Vector3& p2, float radius);
-	~Capsule();
+	BoundingSphere(const Vector3& center, float radius);
+	BoundingSphere(float radius = 0.0f);
+
+
 	/// <summary> 概要 : 移動　</summary>
 	virtual ShapeBase* Translate(const Vector3& position) const override;
 	/// <summary> 概要 : 座標変換　</summary>
@@ -26,14 +29,10 @@ public:
 	virtual bool Collide_Line(const ShapeBase& shape, HitInfo& hitInfo)override;
 	/// <summary> 概要 : 描画　</summary>
 	virtual void Draw() const override;
-
 public:
-	//始点
-	Vector3 p1;
-	//終点
-	Vector3 p2;
-	//始点と終点を結ぶ方向ベクトル
-	Vector3 vector;
+	//中心座標
+	Vector3 center;
 	//半径
 	float radius;
 };
+

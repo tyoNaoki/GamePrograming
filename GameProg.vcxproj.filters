@@ -43,6 +43,9 @@
     <Filter Include="Collision\Line">
       <UniqueIdentifier>{8657f171-b70b-4b4e-97b0-e802c2e785f7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Collision\BoundingSphere">
+      <UniqueIdentifier>{5a2a2b4b-0e9e-4105-983e-9c0c6de9c879}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinMain.cpp">
@@ -134,6 +137,12 @@
     </ClCompile>
     <ClCompile Include="Ray.cpp">
       <Filter>Collision\Ray</Filter>
+    </ClCompile>
+    <ClCompile Include="Line.cpp">
+      <Filter>Collision\Line</Filter>
+    </ClCompile>
+    <ClCompile Include="BoundingSphere.cpp">
+      <Filter>Collision\BoundingSphere</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -245,6 +254,15 @@
     </ClInclude>
     <ClInclude Include="Ray.h">
       <Filter>Collision\Ray</Filter>
+    </ClInclude>
+    <ClInclude Include="Line.h">
+      <Filter>Collision\Line</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeType.h">
+      <Filter>Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="BoundingSphere.h">
+      <Filter>Collision\BoundingSphere</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
