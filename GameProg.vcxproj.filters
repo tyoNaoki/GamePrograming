@@ -16,9 +16,6 @@
     <Filter Include="Character">
       <UniqueIdentifier>{2050aec1-569d-40ee-94af-674f2d82c636}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Seen">
-      <UniqueIdentifier>{6c4c550b-cea1-409c-bc2c-ab681f5dc9b6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Render">
       <UniqueIdentifier>{81d2b774-6089-4b42-a7a2-3b515d770569}</UniqueIdentifier>
     </Filter>
@@ -45,6 +42,12 @@
     </Filter>
     <Filter Include="Collision\BoundingSphere">
       <UniqueIdentifier>{5a2a2b4b-0e9e-4105-983e-9c0c6de9c879}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CSVloader">
+      <UniqueIdentifier>{8dac1a0d-307f-4ca4-91bd-768611af5de7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{6c4c550b-cea1-409c-bc2c-ab681f5dc9b6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -91,13 +94,13 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="SceneController.cpp">
-      <Filter>Seen</Filter>
+      <Filter>Scene</Filter>
     </ClCompile>
     <ClCompile Include="Scene_Tytle.cpp">
-      <Filter>Seen</Filter>
+      <Filter>Scene</Filter>
     </ClCompile>
     <ClCompile Include="Scene_Game.cpp">
-      <Filter>Seen</Filter>
+      <Filter>Scene</Filter>
     </ClCompile>
     <ClCompile Include="EnemyBase.cpp">
       <Filter>Character</Filter>
@@ -143,6 +146,9 @@
     </ClCompile>
     <ClCompile Include="BoundingSphere.cpp">
       <Filter>Collision\BoundingSphere</Filter>
+    </ClCompile>
+    <ClCompile Include="CSVLoader.cpp">
+      <Filter>CSVloader</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -196,16 +202,16 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Scene_Game.h">
-      <Filter>Seen</Filter>
+      <Filter>Scene</Filter>
     </ClInclude>
     <ClInclude Include="Scene_Tytle.h">
-      <Filter>Seen</Filter>
+      <Filter>Scene</Filter>
     </ClInclude>
     <ClInclude Include="IScene.h">
-      <Filter>Seen</Filter>
+      <Filter>Scene</Filter>
     </ClInclude>
     <ClInclude Include="SceneController.h">
-      <Filter>Seen</Filter>
+      <Filter>Scene</Filter>
     </ClInclude>
     <ClInclude Include="EnemyBase.h">
       <Filter>Character</Filter>
@@ -263,6 +269,12 @@
     </ClInclude>
     <ClInclude Include="BoundingSphere.h">
       <Filter>Collision\BoundingSphere</Filter>
+    </ClInclude>
+    <ClInclude Include="CSVLoader.h">
+      <Filter>CSVloader</Filter>
+    </ClInclude>
+    <ClInclude Include="FilePass.h">
+      <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

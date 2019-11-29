@@ -3,10 +3,14 @@
 #include "CharacterBase.h"
 #include "ObjectManager.h"
 #include "ObjectBase.h"
+#include "Player.h"
 #include "World.h"
 
+#define PLAYER_FILL "Data\\Character\\Player\\"
 
-FirstStage::FirstStage()//:DefenceTime(DefaultDefenceTime),BreakTime(DefaultBreakTime)
+
+FirstStage::FirstStage(World*world,Render *renderer,ObjectManager *Manager)
+	:world(world),render(renderer),objectManager(Manager), DefenceTime(DefaultDefenceTime),BreakTime(DefaultBreakTime),IsEndTurn(false)
 {
 }
 
@@ -16,7 +20,11 @@ FirstStage::~FirstStage()
 }
 
 void FirstStage::StageInitialize(){
+	objectManager->AddGroup(GroupCategory::PlayerGroup, new _CharaGroup);
+	objectManager->Add(GroupCategory::PlayerGroup, "Player", new Player(*world,GetStartPotion()));
+
 	LoadAsset();
+	ChangeTurn(GameTurn::DefenceTurn);
 }
 
 void FirstStage::Finalize()
@@ -35,21 +43,63 @@ Vector3 FirstStage::GetEnemySpawnPos()
 }
 
 void FirstStage::LoadAsset(){
-	
+	render->Load3DModel("Player", PLAYER_FILL"PC.mv1");
+	render->LoadAnimation("Player", PLAYER_FILL"Anim_Neutral.mv1");
 }
 
 void FirstStage::TurnFinalize(GameTurn CurrentTurn) {
-
+	switch (CurrentTurn)
+	{
+	case GameTurn::None:
+		break;
+	case GameTurn::Initialize:
+		break;
+	case GameTurn::DefenceTurn:
+		break;
+	case GameTurn::BreakTurn:
+		break;
+	case GameTurn::Clear:
+		break;
+	case GameTurn::GameOver:
+		break;
+	default:
+		break;
+	}
 }
 
 void FirstStage::TurnInitialize(GameTurn NextTurn) {
-
+	switch (NextTurn)
+	{
+	case GameTurn::None:
+		break;
+	case GameTurn::Initialize:
+		break;
+	case GameTurn::DefenceTurn:
+		break;
+	case GameTurn::BreakTurn:
+		
+		break;
+	case GameTurn::Clear:
+		break;
+	case GameTurn::GameOver:
+		break;
+	default:
+		break;
+	}
 }
 
 void FirstStage::ChangeTurn(GameTurn NextTurn) {
 	TurnFinalize(Turn);
 	TurnInitialize(NextTurn);
 	Turn = NextTurn;
+}
+
+void FirstStage::Fade(float Deltatime) {
+	if (alpha <= 1.0){
+		alpha += Deltatime;
+	}else
+	{
+	}
 }
 
 void FirstStage::Update(float Deltatime)
@@ -65,7 +115,11 @@ void FirstStage::Update(float Deltatime)
 		break;
 
 	case  GameTurn::DefenceTurn:
-		objectManager->Update(Deltatime);
+		//if (!GetTime() <= 0) {
+			objectManager->Update(Deltatime);
+		//}
+		//else{
+		//}
 		break;
 
 	case GameTurn::GameOver:
@@ -85,10 +139,12 @@ void FirstStage::Draw(float Deltatime)
 		break;
 
 	case GameTurn::BreakTurn:
-
 		break;
 
 	case  GameTurn::DefenceTurn:
+		if (IsEndTurn != true) {
+			objectManager->Draw(Deltatime, *render);
+		}
 		break;
 
 	case GameTurn::GameOver:

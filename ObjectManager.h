@@ -38,7 +38,7 @@ public:
 	CharacterBase* FindChara(GroupCategory name, std::string CharaName);
 
 private:
-	std::unordered_map<GroupCategory, _CharaGroup*>Charas;
+	std::unordered_map<GroupCategory, _CharaGroup*>Group;
 	World *world;
 	Render *renderer;
 };

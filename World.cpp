@@ -1,8 +1,10 @@
 #include "World.h"
 #include "_CharaGroup.h"
+#include "FirstStage.h"
 
 
-World::World():objectManager(new ObjectManager()){
+World::World(Render *renderer):renderer(renderer){
+	objectManager = new ObjectManager();
 }
 
 
@@ -15,6 +17,8 @@ World::~World()
 void World::Initialize()
 {
 	objectManager->Initialize();
+	curretnStage = new FirstStage(this,renderer,objectManager);
+	curretnStage->StageInitialize();
 }
 
 void World::AddGroup(GroupCategory name, _CharaGroup *Group) {

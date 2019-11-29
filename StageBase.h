@@ -29,5 +29,6 @@ public:
 	virtual void TurnFinalize(GameTurn CurrentTurn) = 0;
 
 	virtual void ChangeTurn(GameTurn NextTurn) = 0;
+	virtual void Fade(float Deltatime) = 0;
 };
 

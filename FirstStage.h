@@ -13,7 +13,7 @@ class FirstStage :
 	public StageBase
 {
 public:
-	FirstStage();
+	FirstStage(World*world,Render *renderer,ObjectManager *Manager);
 	~FirstStage();
 	virtual void StageInitialize()override;
 	virtual void Finalize()override;
@@ -36,6 +36,7 @@ public:
 	virtual void TurnInitialize(GameTurn NextTurn)override;
 	virtual void TurnFinalize(GameTurn CurrentTurn)override;
 	virtual void ChangeTurn(GameTurn NextTurn)override;
+	virtual void Fade(float Deltatime)override;
 
 private:
 	Vector3 StartPos;
@@ -45,12 +46,17 @@ private:
 	std::unordered_map<int, ObjectBase*>Objects;
 
 	ObjectManager *objectManager;
+	Render *render;
+	World *world;
 
 	GameTurn Turn;
 	int NowRound = 0;
 	int MaxRound = 3;
 	int DefenceTime;
 	int BreakTime;
+	bool IsEndTurn;
+	float alpha = 0.0f;
+	bool Pause = false;
 
 	static const int DefaultDefenceTime = 30;
 	static const int DefaultBreakTime = 30;

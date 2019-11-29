@@ -18,8 +18,8 @@ Scene_Game::~Scene_Game()
 }
 
 void Scene_Game::LoadAsset() {
-	render->Load3DModel("Player", Charafolder Playerfolder"PC.mv1" );
-	render->LoadAnimation("Player", Charafolder Playerfolder"Anim_Attack1.mv1");
+	/*render->Load3DModel("Player", Charafolder Playerfolder"PC.mv1" );
+	render->LoadAnimation("Player", Charafolder Playerfolder"Anim_Attack1.mv1");*/
 }
 
 void Scene_Game::Update(float Deltatime) {

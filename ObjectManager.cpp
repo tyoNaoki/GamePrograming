@@ -19,8 +19,8 @@ void ObjectManager::Initialize() {
 }
 
 _CharaGroup* ObjectManager::FindGroup(GroupCategory name) {
-	auto itr = Charas.find(name);
-	if (itr != Charas.end()) {
+	auto itr = Group.find(name);
+	if (itr != Group.end()) {
 		return itr->second;
 	}
 }
@@ -37,19 +37,19 @@ CharacterBase* ObjectManager::FindChara(GroupCategory name, std::string CharaNam
 
 
 void ObjectManager::Update(float Deltatime) {
-	for (auto itr=Charas.begin();itr!=Charas.end();itr++){
+	for (auto itr=Group.begin();itr!=Group.end();itr++){
 		itr->second->UpdateChara(Deltatime);
 	}
 }
 
 void ObjectManager::Draw(float Deltatime, Render &renderer) {
-	for (auto itr = Charas.begin(); itr != Charas.end(); itr++) {
+	for (auto itr = Group.begin(); itr != Group.end(); itr++) {
 		itr->second->DrawChara(Deltatime, renderer);
 	}
 }
 
 void ObjectManager::AddGroup(GroupCategory name,_CharaGroup *Group) {
-	Charas[name] = Group;
+	Group[name] = Group;
 }
 
 template<typename T>
@@ -67,10 +67,10 @@ void ObjectManager::RegisterGroup(GroupCategory Gname) {
 }
 
 void ObjectManager::RemoveGroup(GroupCategory name) {
-	auto itr = Charas.find(name);
-	if (itr != Charas.end()) {
+	auto itr = Group.find(name);
+	if (itr != Group.end()) {
 		delete itr->second;
-		Charas.erase(itr);
+		Group.erase(itr);
 	}
 }
 

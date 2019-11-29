@@ -134,6 +134,7 @@
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Convert.cpp" />
+    <ClCompile Include="CSVLoader.cpp" />
     <ClCompile Include="EnemyBase.cpp" />
     <ClCompile Include="Enemytemplate.cpp" />
     <ClCompile Include="FPS.cpp" />
@@ -173,8 +174,10 @@
     <ClInclude Include="Collision.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Convert.h" />
+    <ClInclude Include="CSVLoader.h" />
     <ClInclude Include="EnemyBase.h" />
     <ClInclude Include="Enemytemplate.h" />
+    <ClInclude Include="FilePass.h" />
     <ClInclude Include="FPS.h" />
     <ClInclude Include="GameTurn.h" />
     <ClInclude Include="ShapeType.h" />

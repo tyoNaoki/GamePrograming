@@ -10,11 +10,12 @@ class CharacterBase;
 class ObjectManager;
 class StageBase;
 enum class GroupCategory;
+class Render;
 
 class World
 {
 public:
-	World();
+	World(Render *renderer);
 	~World();
 	void Initialize();
 	void Update(float Deltatime);
@@ -28,5 +29,6 @@ private:
 	StageBase *stageBase;
 	ObjectManager *objectManager;
 	StageBase *curretnStage;
+	Render *renderer;
 };
 
