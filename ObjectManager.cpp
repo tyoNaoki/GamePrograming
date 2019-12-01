@@ -23,6 +23,7 @@ _CharaGroup* ObjectManager::FindGroup(GroupCategory name) {
 	if (itr != Group.end()) {
 		return itr->second;
 	}
+	return nullptr;
 }
 
 ObjectBase* ObjectManager::FindObject(GroupCategory name, std::string ObjectName)
@@ -48,17 +49,19 @@ void ObjectManager::Draw(float Deltatime, Render &renderer) {
 	}
 }
 
-void ObjectManager::AddGroup(GroupCategory name,_CharaGroup *Group) {
-	Group[name] = Group;
+void ObjectManager::AddGroup(GroupCategory name,_CharaGroup *pGroup) {
+	Group[name] = pGroup;
 }
 
-template<typename T>
-void ObjectManager::Add(GroupCategory name,std::string TargetName,T* Target) {
+void ObjectManager::AddTarget(GroupCategory name,std::string TargetName,CharacterBase* target) {
 	auto itr = FindGroup(name);
-	if (name == GroupCategory::EnemyGroup || name == GroupCategory::PlayerGroup) {
-		itr->second->RegistObject(TargetName, T* Target);
-	}else if(name != GroupCategory::None){
-		itr->second->RegistChara(TargetName, T* Target);
+	if (itr != nullptr) {
+		if (name == GroupCategory::EnemyGroup || name == GroupCategory::PlayerGroup) {
+			//itr->second->RegistObject(TargetName, target);
+		}
+		else if (name != GroupCategory::None) {
+			itr->RegistChara(TargetName, target);
+		}
 	}
 }
 

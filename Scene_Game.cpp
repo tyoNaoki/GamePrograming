@@ -5,16 +5,14 @@
 #define Charafolder "Data//Character"
 #define Playerfolder "//Player//"
 
-Scene_Game::Scene_Game(Render *render,StageBase *firstStage,World *world)
-	: isEnd(false),render(render),CurrentStage(firstStage),worlds(world)
-{
+Scene_Game::Scene_Game(Render *render)
+	: isEnd(false),render(render),worlds(new World(render)){
 }
 
 Scene_Game::~Scene_Game()
 {
 	delete render;
 	delete worlds;
-	delete CurrentStage;
 }
 
 void Scene_Game::LoadAsset() {

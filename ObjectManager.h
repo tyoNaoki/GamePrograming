@@ -27,10 +27,9 @@ public:
 	void Update(float Deltatime);
 	void Draw(float Deltatime, Render &renderer);
 	void RegisterGroup(GroupCategory Gname);
-	void AddGroup(GroupCategory name,_CharaGroup *Group);
+	void AddGroup(GroupCategory name,_CharaGroup *pGroup);
 
-	template<typename T>
-	void Add(GroupCategory name,std::string TargetName,T *target);
+	void AddTarget(GroupCategory name,std::string TargetName,CharacterBase *target);
 
 	void RemoveGroup(GroupCategory name);
 	_CharaGroup* FindGroup(GroupCategory name);

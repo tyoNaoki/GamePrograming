@@ -63,7 +63,7 @@ void SceneController::Initialize() {
 	scenes.clear();
 
 	Scene_Tytle *Tytle = new Scene_Tytle(new Render());
-	Scene_Game *Game = new Scene_Game(new Render(), new FirstStage(), new World());
+	Scene_Game *Game = new Scene_Game(new Render());
 
 	AddScene(Scene::Title, Tytle);
 	AddScene(Scene::Battle, Game);

@@ -20,7 +20,7 @@ private:
 protected:
 	void Draw(float Deltatime)override;
 public:
-	Scene_Game(Render *renderer,StageBase *firstStage,World *world);
+	Scene_Game(Render *renderer);
 	~Scene_Game();
 	bool IsEnd()const override;
 
@@ -30,6 +30,5 @@ private:
 	bool isEnd;
 	Render *render;
 	World *worlds;
-	StageBase *CurrentStage;
 };
 
