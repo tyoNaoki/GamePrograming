@@ -142,6 +142,7 @@
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="Matrix4.cpp" />
+    <ClCompile Include="ObjectGroup.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="Plane.cpp" />
     <ClCompile Include="Quaternion.cpp" />
@@ -180,6 +181,7 @@
     <ClInclude Include="FilePass.h" />
     <ClInclude Include="FPS.h" />
     <ClInclude Include="GameTurn.h" />
+    <ClInclude Include="ObjectGroup.h" />
     <ClInclude Include="ShapeType.h" />
     <ClInclude Include="HitInfo.h" />
     <ClInclude Include="Input.h" />

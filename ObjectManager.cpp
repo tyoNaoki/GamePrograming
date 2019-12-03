@@ -49,24 +49,27 @@ void ObjectManager::Draw(float Deltatime, Render &renderer) {
 	}
 }
 
-void ObjectManager::AddGroup(GroupCategory name,_CharaGroup *pGroup) {
-	Group[name] = pGroup;
+void ObjectManager::AddGroup(GroupCategory name) { 
+	_CharaGroup *tempGroup = new _CharaGroup();
+	Group[name] = tempGroup;
 }
 
-void ObjectManager::AddTarget(GroupCategory name,std::string TargetName,CharacterBase* target) {
+void ObjectManager::AddChildren(GroupCategory name, std::string TargetName, CharacterBase* target) {
 	auto itr = FindGroup(name);
 	if (itr != nullptr) {
-		if (name == GroupCategory::EnemyGroup || name == GroupCategory::PlayerGroup) {
-			//itr->second->RegistObject(TargetName, target);
-		}
-		else if (name != GroupCategory::None) {
-			itr->RegistChara(TargetName, target);
+		if (name != GroupCategory::None) {
+			itr->Regist(TargetName, target);
 		}
 	}
 }
 
-void ObjectManager::RegisterGroup(GroupCategory Gname) {
-	AddGroup(Gname, new _CharaGroup());
+void ObjectManager::AddChildren(GroupCategory GroupType, CharaCategory CharaType, std::string Targetname) {
+	auto itr = FindGroup(GroupType);
+	if (itr != nullptr) {
+		if (GroupType != GroupCategory::None) {
+			itr->Regist(Targetname)
+		}
+	}
 }
 
 void ObjectManager::RemoveGroup(GroupCategory name) {

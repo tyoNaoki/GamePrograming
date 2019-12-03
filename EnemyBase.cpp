@@ -1,8 +1,8 @@
 #include "EnemyBase.h"
 
 
-EnemyBase::EnemyBase(World &world,Vector3 &position)
-	: CharacterBase(world,position)
+EnemyBase::EnemyBase(World &world, Vector3 &position, std::string &name)
+	: CharacterBase(world, position), EnemyName(name)
 {
 }
 

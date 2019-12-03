@@ -16,18 +16,19 @@ World::~World()
 
 void World::Initialize()
 {
+	objectManager->AddGroup(GroupCategory::PlayerGroup, new _CharaGroup());
 	objectManager->Initialize();
 	curretnStage = new FirstStage(this,renderer,objectManager);
 	curretnStage->StageInitialize();
 }
 
-void World::AddGroup(GroupCategory name, _CharaGroup *Group) {
+
+void World::RegisterGroup(GroupCategory name, _CharaGroup *Group) {
 	objectManager->RegisterGroup(name);
 }
 
-template<typename T>
-void World::AddTarget(GroupCategory name, std::string TargetName,T *target) {
-	objectManager->Add(name,TargetName,target);
+void World::AddChildren(GroupCategory name, std::string TargetName, CharacterBase *Target) {
+	objectManager->
 }
 
 void World::Update(float Deltatime)

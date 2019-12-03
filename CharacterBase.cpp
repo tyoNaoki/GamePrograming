@@ -1,6 +1,7 @@
 #include "CharacterBase.h"
 
-
+CharacterBase::CharacterBase(World &_world, Vector3 &_position, CharaCategory type)
+	: world(&_world), position(_position), CharaType(type) {};
 
 void CharacterBase::BaseUpdate(float Deltatime) {
 	Update(Deltatime);

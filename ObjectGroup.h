@@ -6,29 +6,27 @@
 #include "Render.h"
 #include "string.h"
 
+#define MAX_COUNT_ARRANGEMENT 20
+
 class CharacterBase;
 class ObjectBase;
 
-class _CharaGroup
+class ObjectGroup
 {
 public:
-	_CharaGroup();
-	~_CharaGroup();
+	ObjectGroup();
+	~ObjectGroup();
 	virtual void Regist(const std::string name, ObjectBase* object);
-	virtual void Regist(const std::string name, CharacterBase* character);
 	virtual int GetAliveNumber();
 	virtual void Initialize();
 	virtual void Finalize();
-	virtual void UpdateChara(const float Deltatime);
 	virtual void UpdateObject(const float Deltatime);
-	virtual void DrawChara(const float &Deltatime,Render &renderer);
 	virtual void DrawObject(const float Deltatime, Render &renderer);
-	virtual void RemoveChara(const std::string name);
-	virtual CharacterBase* GetChara(const std::string name);
-	virtual ObjectBase* GetObject(const std::string name);
+	virtual void Remove(const std::string name);
+	virtual ObjectBase* Get(const std::string name);
 	virtual bool contain(const std::string &name);
 private:
-	std::unordered_map<std::string, ObjectBase*>Objects;
-	std::unordered_map<std::string, CharacterBase*>Characters;
+	std::vector<ObjectBase*>Group;
 };
+
 

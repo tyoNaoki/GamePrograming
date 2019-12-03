@@ -49,6 +49,9 @@
     <Filter Include="Scene">
       <UniqueIdentifier>{6c4c550b-cea1-409c-bc2c-ab681f5dc9b6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Character\Group">
+      <UniqueIdentifier>{00904905-8366-498f-a131-22ea48b618e8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinMain.cpp">
@@ -114,9 +117,6 @@
     <ClCompile Include="Player.cpp">
       <Filter>Character</Filter>
     </ClCompile>
-    <ClCompile Include="_CharaGroup.cpp">
-      <Filter>Character</Filter>
-    </ClCompile>
     <ClCompile Include="World.cpp">
       <Filter>World</Filter>
     </ClCompile>
@@ -149,6 +149,12 @@
     </ClCompile>
     <ClCompile Include="CSVLoader.cpp">
       <Filter>CSVloader</Filter>
+    </ClCompile>
+    <ClCompile Include="_CharaGroup.cpp">
+      <Filter>Character\Group</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectGroup.cpp">
+      <Filter>Character\Group</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -222,9 +228,6 @@
     <ClInclude Include="Player.h">
       <Filter>Character</Filter>
     </ClInclude>
-    <ClInclude Include="_CharaGroup.h">
-      <Filter>Character</Filter>
-    </ClInclude>
     <ClInclude Include="ObjectManager.h">
       <Filter>Character</Filter>
     </ClInclude>
@@ -275,6 +278,12 @@
     </ClInclude>
     <ClInclude Include="FilePass.h">
       <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="_CharaGroup.h">
+      <Filter>Character\Group</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectGroup.h">
+      <Filter>Character\Group</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

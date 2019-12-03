@@ -10,11 +10,11 @@ _CharaGroup::~_CharaGroup()
 }
 
 
-void _CharaGroup::RegistObject(const std::string name, ObjectBase* object) {
+void _CharaGroup::Regist(const std::string name, ObjectBase* object) {
 	Objects[name] = object;
 }
 
-void _CharaGroup::RegistChara(const std::string name, CharacterBase * character){
+void _CharaGroup::Regist(const std::string name, CharacterBase * character){
 	Characters[name] = character;
 }
 

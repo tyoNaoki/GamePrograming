@@ -20,9 +20,9 @@ public:
 	void Initialize();
 	void Update(float Deltatime);
 	void Draw(float Delattime, Render &renderer);
-	void AddGroup(GroupCategory name, _CharaGroup *Group);
-	template<typename T>
-	void AddTarget(GroupCategory name, std::string TargetName, T *target);
+	void RegisterGroup(GroupCategory name, _CharaGroup *Group);
+	void AddChildren(GroupCategory name, std::string TargetName, CharacterBase *Target);
+	void AddChildren(GroupCategory name, std::string TargetName, ObjectBase *Target);
 	Vector3 GetStartPosition();
 	GameTurn GetTurn();
 private:

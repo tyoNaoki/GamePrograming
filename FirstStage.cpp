@@ -20,10 +20,6 @@ FirstStage::~FirstStage()
 }
 
 void FirstStage::StageInitialize(){
-	objectManager->AddGroup(GroupCategory::PlayerGroup, new _CharaGroup);
-	objectManager->AddTarget(GroupCategory::PlayerGroup, "Player", new Player(*world,GetStartPotion()));
-
-	LoadAsset();
 	ChangeTurn(GameTurn::DefenceTurn);
 }
 

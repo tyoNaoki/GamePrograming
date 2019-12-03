@@ -18,6 +18,14 @@ enum class GroupCategory {
 	None
 };
 
+enum class CharaCategory {
+	Player,
+	NormalEnemy,
+	TargetEnemy,
+	Boss,
+	None
+};
+
 class ObjectManager
 {
 public:
@@ -26,10 +34,9 @@ public:
 	void Initialize();
 	void Update(float Deltatime);
 	void Draw(float Deltatime, Render &renderer);
-	void RegisterGroup(GroupCategory Gname);
-	void AddGroup(GroupCategory name,_CharaGroup *pGroup);
 
-	void AddTarget(GroupCategory name,std::string TargetName,CharacterBase *target);
+	void AddGroup(GroupCategory GroupType);
+	void AddChildren(GroupCategory GroupType,CharaCategory CharaType,std::string TargetName);
 
 	void RemoveGroup(GroupCategory name);
 	_CharaGroup* FindGroup(GroupCategory name);
@@ -37,6 +44,7 @@ public:
 	CharacterBase* FindChara(GroupCategory name, std::string CharaName);
 
 private:
+
 	std::unordered_map<GroupCategory, _CharaGroup*>Group;
 	World *world;
 	Render *renderer;
