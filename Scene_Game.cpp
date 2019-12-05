@@ -9,15 +9,14 @@ Scene_Game::Scene_Game(Render *render)
 	: isEnd(false),render(render),worlds(new World(render)){
 }
 
-Scene_Game::~Scene_Game()
-{
+Scene_Game::~Scene_Game(){
 	delete render;
 	delete worlds;
 }
 
 void Scene_Game::LoadAsset() {
-	/*render->Load3DModel("Player", Charafolder Playerfolder"PC.mv1" );
-	render->LoadAnimation("Player", Charafolder Playerfolder"Anim_Attack1.mv1");*/
+	render->Load3DModel("Player", Charafolder Playerfolder"PC.mv1" );
+	render->LoadAnimation("Player", Charafolder Playerfolder"Anim_Neutral.mv1");
 }
 
 void Scene_Game::Update(float Deltatime) {
@@ -29,6 +28,7 @@ void Scene_Game::Draw(float Deltatime) {
 }
 
 void Scene_Game::Initialize() {
+	LoadAsset();
 	worlds->Initialize();
 }
 

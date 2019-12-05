@@ -4,50 +4,52 @@
 
 
 World::World(Render *renderer):renderer(renderer){
-	objectManager = new ObjectManager();
+	objectManager = new ObjectManager(this,renderer);
 }
 
 
 World::~World()
 {
-	//delete stageBase;
+	delete curretStage;
 	delete objectManager;
 }
 
 void World::Initialize()
 {
-	objectManager->AddGroup(GroupCategory::PlayerGroup, new _CharaGroup());
+	Stages = new FirstStage(this, renderer, objectManager);
+	curretStage = Stages;
+	curretStage->StageInitialize();
+	objectManager->AddGroup(CharaCategory::Player);
+	objectManager->AddChildren(CharaCategory::Player, "Player");
 	objectManager->Initialize();
-	curretnStage = new FirstStage(this,renderer,objectManager);
-	curretnStage->StageInitialize();
 }
 
-
-void World::RegisterGroup(GroupCategory name, _CharaGroup *Group) {
-	objectManager->RegisterGroup(name);
+template <class T>
+void World::AddGroup(T category) {
+	objectManager->AddGroup(category);
 }
 
-void World::AddChildren(GroupCategory name, std::string TargetName, CharacterBase *Target) {
-	objectManager->
+template <class T>
+void World::AddChildren(T category,std::string name) {
+	objectManager->AddChildren(category, name);
 }
 
-void World::Update(float Deltatime)
-{
-	stageBase->Update(Deltatime);
+void World::Update(float Deltatime){
+	curretStage->Update(Deltatime);
 	objectManager->Update(Deltatime);
 }
 
 GameTurn World::GetTurn() {
-	return stageBase->GetTurn();
+	return curretStage->GetTurn();
 }
 
 void World::Draw(float Delattime, Render &renderer)
 {
-	stageBase->Draw(Delattime);
+	curretStage->Draw(Delattime);
 	objectManager->Draw(Delattime, renderer);
 }
 
 Vector3 World::GetStartPosition()
 {
-	return stageBase->GetStartPotion();
+	return curretStage->GetStartPotion();
 }

@@ -39,7 +39,7 @@ public:
 	virtual void Fade(float Deltatime)override;
 
 private:
-	Vector3 StartPos;
+	Vector3 StartPos = Vector3(600.0f,300.0f,-400.0f);
 	std::vector<Vector3>EnemySpawnPositions[MAX_ENEMY_SPAWNPOSITION];
 	std::vector<Vector3>BarricadePositions[MAX_BARRICADE];
 

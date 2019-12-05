@@ -2,7 +2,7 @@
 #include "DxLib.h"
 #include "CharacterBase.h"
 #include<unordered_map>
-#include<forward_list>
+#include <vector>
 #include "Render.h"
 #include "string.h"
 
@@ -14,21 +14,16 @@ class _CharaGroup
 public:
 	_CharaGroup();
 	~_CharaGroup();
-	virtual void Regist(const std::string name, ObjectBase* object);
 	virtual void Regist(const std::string name, CharacterBase* character);
 	virtual int GetAliveNumber();
-	virtual void Initialize();
+	virtual void Initialize(Render &renderer);
 	virtual void Finalize();
-	virtual void UpdateChara(const float Deltatime);
-	virtual void UpdateObject(const float Deltatime);
-	virtual void DrawChara(const float &Deltatime,Render &renderer);
-	virtual void DrawObject(const float Deltatime, Render &renderer);
-	virtual void RemoveChara(const std::string name);
-	virtual CharacterBase* GetChara(const std::string name);
-	virtual ObjectBase* GetObject(const std::string name);
+	virtual void Update(const float Deltatime);
+	virtual void Draw(const float &Deltatime,Render &renderer);
+	virtual bool Remove(const std::string name);
+	virtual CharacterBase* Get(const std::string name);
 	virtual bool contain(const std::string &name);
 private:
-	std::unordered_map<std::string, ObjectBase*>Objects;
-	std::unordered_map<std::string, CharacterBase*>Characters;
+	std::vector<CharacterBase*>Character;
 };
 

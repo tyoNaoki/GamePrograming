@@ -12,6 +12,7 @@ public:
 	virtual void Initialize(Render &renderer) = 0;
 	
 	virtual void Move(float Deltatime) = 0;
+	virtual std::string GetName() = 0;
 	virtual int GetHP() = 0;
 	virtual int GetGard() = 0;
 	virtual float GetVelocity() = 0;
@@ -20,7 +21,7 @@ public:
 	virtual void Animation(float Deltatime) = 0;
 	virtual void LookAtTarget(ObjectBase *target) =0;
 	virtual void LookAtDirection(Vector3 &TargetPostion) =0;
-	CharacterBase(World &_world, Vector3 &_position, CharaCategory type);
+	CharacterBase(World &_world, Vector3 &_position);
 	virtual ~CharacterBase() {};
 
 protected:
@@ -34,8 +35,10 @@ public:
 	void BaseDraw(float Deltatime,Render &renderer);
 
 protected:
-	CharaCategory CharaType = CharaCategory::None;
 	World *world;
 	Vector3 position;
+	std::string Name;
+	int HP;
+	int Diffence;
 }; 
 

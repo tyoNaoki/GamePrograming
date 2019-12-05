@@ -17,7 +17,7 @@ Scene_Tytle::~Scene_Tytle()
 }
 
 void Scene_Tytle::LoadAsset() {
-	renderer->LoadTexture("title", "Data\\2D\\ROGO.png");
+	renderer->LoadTexture("title", "Data\\2D\\Title.png");
 	renderer->LoadTexture("frame", "Data\\2D\\SlidBar.png");
 	renderer->LoadTexture("Start", "Data\\2D\\Start.png");
 	renderer->LoadTexture("Exit", "Data\\2D\\Exit.png");

@@ -6,7 +6,7 @@ class Player :
 	public CharacterBase
 {
 public:
-	Player(World &world, Vector3 &position);
+	Player(World &world, Vector3 &pos,std::string &_name);
 	~Player();
 	void Initialize(Render &renderer)override;
 	void Update(float Deltatime)override;
@@ -16,6 +16,7 @@ public:
 	void Move(float Deltatime) override;
 	int GetHP() override;
 	int GetGard() override;
+	std::string GetName() override;
 	float GetVelocity() override;
 	bool IsDeath() override;
 	bool IsCancel() override;
@@ -23,8 +24,6 @@ public:
 	void LookAtTarget(ObjectBase *target) override;
 	void LookAtDirection(Vector3 &TargetPostion) override;
 private:
-	int HP;
-	int Gard;
 
 	bool IsKnockBack;
 

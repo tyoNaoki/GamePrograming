@@ -186,9 +186,6 @@
     <ClInclude Include="Math.h">
       <Filter>Math</Filter>
     </ClInclude>
-    <ClInclude Include="Mathematics.h">
-      <Filter>Math</Filter>
-    </ClInclude>
     <ClInclude Include="Matrix4.h">
       <Filter>Math</Filter>
     </ClInclude>
@@ -284,6 +281,9 @@
     </ClInclude>
     <ClInclude Include="ObjectGroup.h">
       <Filter>Character\Group</Filter>
+    </ClInclude>
+    <ClInclude Include="Mathematics.h">
+      <Filter>Character</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

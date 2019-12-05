@@ -20,15 +20,16 @@ public:
 	void Initialize();
 	void Update(float Deltatime);
 	void Draw(float Delattime, Render &renderer);
-	void RegisterGroup(GroupCategory name, _CharaGroup *Group);
-	void AddChildren(GroupCategory name, std::string TargetName, CharacterBase *Target);
-	void AddChildren(GroupCategory name, std::string TargetName, ObjectBase *Target);
+	template <class T>
+	void AddGroup(T category);
+	template <class T>
+	void AddChildren(T category,std::string name);
 	Vector3 GetStartPosition();
 	GameTurn GetTurn();
 private:
-	StageBase *stageBase;
+	StageBase *Stages;
 	ObjectManager *objectManager;
-	StageBase *curretnStage;
+	StageBase *curretStage;
 	Render *renderer;
 };
 

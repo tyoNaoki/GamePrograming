@@ -15,7 +15,6 @@ struct ModelInfo {
 	int animeID;
 	//前回のアニメーションID
 	int previousAnimeID;
-
 	//今再生しているアニメーション番号
 	int nowPlayAnimeIndex;
 	//前回再生していたアニメーション番号
@@ -24,8 +23,6 @@ struct ModelInfo {
 	float lerpTime;
 	//アニメーションの参照元のモデルID
 	int sourceAnimeModelID;
-
-
 
 	ModelInfo() {
 		Initialize();

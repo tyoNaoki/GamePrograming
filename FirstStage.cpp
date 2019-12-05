@@ -30,12 +30,12 @@ void FirstStage::Finalize()
 
 Vector3 FirstStage::GetStartPotion()
 {
-	return Vector3();
+	return StartPos;
 }
 
 Vector3 FirstStage::GetEnemySpawnPos()
 {
-	return Vector3();
+	return StartPos;
 }
 
 void FirstStage::LoadAsset(){
@@ -139,7 +139,6 @@ void FirstStage::Draw(float Deltatime)
 
 	case  GameTurn::DefenceTurn:
 		if (IsEndTurn != true) {
-			objectManager->Draw(Deltatime, *render);
 		}
 		break;
 

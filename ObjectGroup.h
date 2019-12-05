@@ -16,7 +16,6 @@ class ObjectGroup
 public:
 	ObjectGroup();
 	~ObjectGroup();
-	virtual void Regist(const std::string name, ObjectBase* object);
 	virtual int GetAliveNumber();
 	virtual void Initialize();
 	virtual void Finalize();
@@ -26,7 +25,7 @@ public:
 	virtual ObjectBase* Get(const std::string name);
 	virtual bool contain(const std::string &name);
 private:
-	std::vector<ObjectBase*>Group;
+	std::vector<ObjectBase*>Object;
 };
 
 
