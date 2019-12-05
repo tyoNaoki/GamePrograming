@@ -3,6 +3,7 @@
 #include "ObjectBase.h"
 #include "CharacterBase.h"
 #include "_CharaGroup.h"
+#include "ObjectGroup.h"
 #include <vector>
 #include <unordered_map>
 
@@ -11,11 +12,8 @@ class ObjectBase;
 class CharacterBase;
 
 enum class GroupCategory {
-	PlayerGroup,
-	EnemyGroup,
-	Barricade,
-	GardTarget,
-	None
+	CharacterGroup,
+	ObjectGroup,
 };
 
 enum class CharaCategory {
@@ -23,6 +21,14 @@ enum class CharaCategory {
 	NormalEnemy,
 	TargetEnemy,
 	Boss,
+	None
+};
+
+enum class ObjectCategory {
+	Wall,
+	DiffenceTarget,
+	Gate,
+	Trap,
 	None
 };
 
@@ -35,17 +41,22 @@ public:
 	void Update(float Deltatime);
 	void Draw(float Deltatime, Render &renderer);
 
-	void AddGroup(GroupCategory GroupType);
-	void AddChildren(GroupCategory GroupType,CharaCategory CharaType,std::string TargetName);
+	void AddGroup(GroupCategory GroupType,CharaCategory CharacterType);
+	void AddChildren(CharaCategory CharaType,std::string TargetName);
+	void AddChildren(ObjectCategory ObjectType, std::string TargetName);
 
 	void RemoveGroup(GroupCategory name);
-	_CharaGroup* FindGroup(GroupCategory name);
-	ObjectBase* FindObject(GroupCategory name, std::string ObjectName);
-	CharacterBase* FindChara(GroupCategory name, std::string CharaName);
+
+	void FindGroup(GroupCategory name,CharaCategory CharaType);
+	void FindGroup(GroupCategory name, ObjectCategory ObjectType);
+	ObjectBase* FindChildren(ObjectCategory ObjectType, std::string ObjectName);
+	CharacterBase* FindChildren(CharaCategory CharaType, std::string CharaName);
 
 private:
-
-	std::unordered_map<GroupCategory, _CharaGroup*>Group;
+	//各キャラクターの親を入れる
+	std::unordered_map<GroupCategory,_CharaGroup*>Characters;
+	std::unordered_map<GroupCategory,ObjectGroup*>Objects;
+	
 	World *world;
 	Render *renderer;
 };

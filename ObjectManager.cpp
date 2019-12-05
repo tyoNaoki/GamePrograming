@@ -26,14 +26,12 @@ _CharaGroup* ObjectManager::FindGroup(GroupCategory name) {
 	return nullptr;
 }
 
-ObjectBase* ObjectManager::FindObject(GroupCategory name, std::string ObjectName)
-{
-	return FindGroup(name)->GetObject(ObjectName);
+ObjectBase* ObjectManager::FindChildren(ObjectCategory ObjectType, std::string ObjectName){
+	return nullptr;
 }
 
-CharacterBase* ObjectManager::FindChara(GroupCategory name, std::string CharaName)
-{
-	return FindGroup(name)->GetChara(CharaName);
+CharacterBase* ObjectManager::FindChildren(CharaCategory CharaType, std::string CharaName){
+	return nullptr;
 }
 
 
@@ -49,27 +47,25 @@ void ObjectManager::Draw(float Deltatime, Render &renderer) {
 	}
 }
 
-void ObjectManager::AddGroup(GroupCategory name) { 
-	_CharaGroup *tempGroup = new _CharaGroup();
-	Group[name] = tempGroup;
+void ObjectManager::AddGroup(GroupCategory name) {
 }
 
-void ObjectManager::AddChildren(GroupCategory name, std::string TargetName, CharacterBase* target) {
+void ObjectManager::AddChildren(GroupCategory GroupType,) {
 	auto itr = FindGroup(name);
 	if (itr != nullptr) {
-		if (name != GroupCategory::None) {
-			itr->Regist(TargetName, target);
-		}
+		itr->Regist(TargetName, target);
+	}
+	else {
+		Characters[name] = new
 	}
 }
 
 void ObjectManager::AddChildren(GroupCategory GroupType, CharaCategory CharaType, std::string Targetname) {
-	auto itr = FindGroup(GroupType);
-	if (itr != nullptr) {
-		if (GroupType != GroupCategory::None) {
-			itr->Regist(Targetname)
-		}
-	}
+	Characters[CharaType] = 
+}
+
+void ObjectManager::AddChildren(GroupCategory GroupType, ObjectCategory ObjectType, std::string TargetType) {
+
 }
 
 void ObjectManager::RemoveGroup(GroupCategory name) {
