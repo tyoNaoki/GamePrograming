@@ -138,8 +138,7 @@ void FirstStage::Draw(float Deltatime)
 		break;
 
 	case  GameTurn::DefenceTurn:
-		if (IsEndTurn != true) {
-		}
+		
 		break;
 
 	case GameTurn::GameOver:
@@ -178,4 +177,8 @@ int FirstStage::GetRound()
 
 int FirstStage::RemainRound() {
 	return MaxRound - NowRound;
+}
+
+void FirstStage::CreateStage() {
+
 }

@@ -30,6 +30,7 @@ public:
 	virtual int GetTime()override;
 	virtual int GetRound()override;
 	virtual int RemainRound()override;
+	virtual void  CreateStage()override;
 
 	GameTurn GetTurn()override;
 

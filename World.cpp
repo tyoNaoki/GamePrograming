@@ -45,8 +45,8 @@ GameTurn World::GetTurn() {
 
 void World::Draw(float Delattime, Render &renderer)
 {
-	curretStage->Draw(Delattime);
 	objectManager->Draw(Delattime, renderer);
+	curretStage->Draw(Delattime);
 }
 
 Vector3 World::GetStartPosition()

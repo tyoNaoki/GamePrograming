@@ -32,6 +32,14 @@ void Input::RegistKey() {
 	commandFunc[10] = [&](void)->bool {return IsKeyBoardDown(KEY_INPUT_SPACE); };*/
 }
 
+void Input::InitializeKey() {
+	/*　キーボード配列の初期化　　*/
+	for (int index = 0; index < Max_Key_Num; ++index) {
+		curKeys[index] = 0;
+		preKeys[index] = 0;
+	}
+}
+
 void Input::Update() {
 	//軽くなるかも？
 	ClearInputCharBuf();
@@ -65,6 +73,46 @@ bool Input::IsKeyBoardState(int key) {
 		keyState = true;
 
 	return keyState;
+}
+
+Vector3 Input::GetWASDVelocity() {
+	//プレイヤーの移動量
+	Vector3 velocity = Vector3::Vector3(0.0f, 0.0f, 0.0f);
+
+	if (IsKeyBoardState(KEY_INPUT_W))
+		velocity.z = 1.0f;
+	if (IsKeyBoardState(KEY_INPUT_A))
+		velocity.x = -1.0f;
+	if (IsKeyBoardState(KEY_INPUT_S))
+		velocity.z = -1.0f;
+	if (IsKeyBoardState(KEY_INPUT_D))
+		velocity.x = 1.0f;
+
+	//斜めの正規化
+	if (velocity.Length() != 0.0f)
+		velocity.Normalize();
+
+	return velocity;
+}
+
+Vector3 Input::GetULDRVelocity() {
+	//プレイヤーの移動量
+	Vector3 velocity = Vector3::Vector3(0.0f, 0.0f, 0.0f);
+
+	if (IsKeyBoardState(KEY_INPUT_UP))
+		velocity.z = 1.0f;
+	if (IsKeyBoardState(KEY_INPUT_LEFT))
+		velocity.x = -1.0f;
+	if (IsKeyBoardState(KEY_INPUT_DOWN))
+		velocity.z = -1.0f;
+	if (IsKeyBoardState(KEY_INPUT_RIGHT))
+		velocity.x = 1.0f;
+
+	//斜めの正規化
+	if (velocity.Length() != 0.0f)
+		velocity.Normalize();
+
+	return velocity;
 }
 
 Vector3 Input::GetVelocity() {

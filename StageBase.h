@@ -22,6 +22,7 @@ public:
 	virtual void GameOver() = 0;
 	virtual int GetTime() = 0;
 	virtual int GetRound() = 0;
+	virtual void CreateStage() = 0;
 	virtual GameTurn GetTurn() { return GameTurn::None; }
 
 	virtual int RemainRound() = 0;

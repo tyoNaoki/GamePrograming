@@ -3,6 +3,7 @@
 #include "DxLib.h"
 #include "ObjectBase.h"
 #include "Vector3.h"
+#include "Matrix4.h"
 
 class ObjectBase;
 
@@ -12,6 +13,7 @@ public:
 	virtual void Initialize(Render &renderer) = 0;
 	
 	virtual void Move(float Deltatime) = 0;
+	virtual void Twist() = 0;
 	virtual std::string GetName() = 0;
 	virtual int GetHP() = 0;
 	virtual int GetGard() = 0;
@@ -33,12 +35,20 @@ protected:
 public:
 	void BaseUpdate(float Deltatime);
 	void BaseDraw(float Deltatime,Render &renderer);
+	Vector3 GetPosition() const;
+	Matrix4 GetMatrix() const;
 
 protected:
 	World *world;
+	//座標
 	Vector3 position;
+	//姿勢行列
+	Matrix4 matrix;
+	//キャラクターの名前
 	std::string Name;
+	//キャラクターの体力
 	int HP;
+	//キャラクターの防御力
 	int Diffence;
 }; 
 

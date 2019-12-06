@@ -39,7 +39,11 @@ public:
 	bool IsKeyBoardDown(int key);  //キーボード DOWN
 	bool IsKeyBoardState(int key); //キーボード STATE
 
-	void Input::RegistKey();
+	Vector3 GetULDRVelocity(); //移動量取得(矢印版)
+	Vector3 GetWASDVelocity(); //移動量取得(WASD版)
+
+	void RegistKey();
+	void InitializeKey();
 
 	static const int Max_Key_Num = 256;
 

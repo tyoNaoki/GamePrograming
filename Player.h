@@ -1,6 +1,17 @@
 #pragma once
 #include "CharacterBase.h"
 
+enum class PlayerAnimation {
+	Idle,
+	Walk,
+	Run,
+	Attack01,
+	Attack02,
+	Attack03,
+	GardShild,
+	Jump,
+	Death
+};
 
 class Player :
 	public CharacterBase
@@ -14,6 +25,7 @@ public:
 	void Draw(float Deltatime, Render &renderer) override;
 	void SubDraw(float Deltatime, Render &renderer)override;
 	void Move(float Deltatime) override;
+	void Twist() override;
 	int GetHP() override;
 	int GetGard() override;
 	std::string GetName() override;
@@ -24,13 +36,16 @@ public:
 	void LookAtTarget(ObjectBase *target) override;
 	void LookAtDirection(Vector3 &TargetPostion) override;
 private:
+	void LookAtDirectionOfMovement(const Vector3& velocity);
 
 	bool IsKnockBack;
 
+	float speed = 0;
 	bool IsAttack;
 	bool IsGard;
 	bool IsJuming;
 	bool Avoidance;
+	bool isTwist = false;
 	float JumpingTime;
 
 	float timer;
@@ -46,6 +61,12 @@ private:
 	Vector3 targetVector;
 	Vector3 inertiaVector;
 
+	float twistAngle;
+	float maxTwistAngle;
+
+	float keyBoadAngle;
+
+	Matrix4 shoulderMatrix;
 
 	enum class Anim {
 		Idle,
