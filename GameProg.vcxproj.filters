@@ -52,6 +52,9 @@
     <Filter Include="Character\Group">
       <UniqueIdentifier>{00904905-8366-498f-a131-22ea48b618e8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TextParamloader">
+      <UniqueIdentifier>{81f61d70-b367-4477-8d5b-3a3c7a1c572e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinMain.cpp">
@@ -155,6 +158,9 @@
     </ClCompile>
     <ClCompile Include="ObjectGroup.cpp">
       <Filter>Character\Group</Filter>
+    </ClCompile>
+    <ClCompile Include="TextParamLoader.cpp">
+      <Filter>TextParamloader</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -284,6 +290,12 @@
     </ClInclude>
     <ClInclude Include="Mathematics.h">
       <Filter>Character</Filter>
+    </ClInclude>
+    <ClInclude Include="StageInfo.h">
+      <Filter>World</Filter>
+    </ClInclude>
+    <ClInclude Include="TextParamLoader.h">
+      <Filter>TextParamloader</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
