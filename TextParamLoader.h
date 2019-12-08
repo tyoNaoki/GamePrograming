@@ -75,14 +75,14 @@ struct _STextParamInfo
 class TextParamLoader
 {
 public:
-	bool  LoadTextParam(_STextParamInfo *TxtParam,const char *FilePath);
-	int   SearchTextParam(_STextParamInfo *TxtParam,const char *ParamName);
-	int   GetTextParamInt(_STextParamInfo *TxtParam,const char *ParamName);
-	bool  GetTextParamBool(_STextParamInfo *TxtParam,const char *ParamName);
-	float GetTextParamFloat(_STextParamInfo *TxtParam,const char *ParamName);
-	Vector3 GetTextParamVector(_STextParamInfo *TxtParam,const char *ParamName);
-	const char *GetTextParamString(_STextParamInfo *TxtParam,const char *ParamName);
-	COLOR_U8 GetTextParamColor(_STextParamInfo *TxtParam,const char *ParamName);
+	bool  LoadTextParam(_STextParamInfo *TxtParam,const char *FilePath,...);
+	int   SearchTextParam(_STextParamInfo *TxtParam,const char *ParamName,...);
+	int   GetTextParamInt(_STextParamInfo *TxtParam,const char *ParamName,...);
+	bool  GetTextParamBool(_STextParamInfo *TxtParam,const char *ParamName,...);
+	float GetTextParamFloat(_STextParamInfo *TxtParam,const char *ParamName,...);
+	Vector3 GetTextParamVector(_STextParamInfo *TxtParam,const char *ParamName,...);
+	const char *GetTextParamString(_STextParamInfo *TxtParam,const char *ParamName,...);
+	COLOR_U8 GetTextParamColor(_STextParamInfo *TxtParam,const char *ParamName,...);
 	TextParamLoader();
 	~TextParamLoader();
 private:

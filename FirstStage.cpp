@@ -135,6 +135,7 @@ void FirstStage::Draw(float Deltatime)
 		break;
 
 	case GameTurn::BreakTurn:
+		render->Draw3DModel("Stage", Matrix4::Translate(Vector3(0.0, 0.0, 0.0)));
 		break;
 
 	case  GameTurn::DefenceTurn:

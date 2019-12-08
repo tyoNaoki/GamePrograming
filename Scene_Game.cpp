@@ -3,6 +3,7 @@
 #include <DxLib.h>
 
 #define Charafolder "Data//Character"
+#define Stagefolder "Data//Stage//"
 #define Playerfolder "//Player//"
 
 Scene_Game::Scene_Game(Render *render)
@@ -17,6 +18,8 @@ Scene_Game::~Scene_Game(){
 void Scene_Game::LoadAsset() {
 	render->Load3DModel("Player", Charafolder Playerfolder"PC.mv1" );
 	render->LoadAnimation("Player", Charafolder Playerfolder"Anim_Neutral.mv1");
+	render->Load3DModel("Stage", Stagefolder "Stage00.mv1");
+	render->Load3DModel("Stage")
 }
 
 void Scene_Game::Update(float Deltatime) {
