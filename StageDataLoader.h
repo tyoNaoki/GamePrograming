@@ -1,12 +1,11 @@
 #pragma once
 
-#include "CharacterBase.h"
-#include "Vector3.h"
-#include "ShapeBase.h"
-#include "ShapeType.h"
-#include "TextParamLoader.h"
+#ifndef STAGEDATA_H
+#define STAGEDATA_H
 
-enum class ShapeType;
+#include "CharacterBase.h"
+#include "TextParamLoader.h"
+#include "StageInfo.h"
 
 // ステージデータファイルの先頭に書き込む文字列
 #define STAGEFILE_ID								"MAPD"
@@ -28,32 +27,6 @@ enum class ShapeType;
 
 // コリジョンモデルの最大マテリアル数
 #define STAGE_COLLISION_MODEL_MATERIAL_MAX_NUM		(32)
-
-// 素材タイプ
-typedef enum _EMaterialType
-{
-	EMaterialType_Grass,	// 草
-	EMaterialType_Metal,	// 金属
-	EMaterialType_Soil,		// 土
-	EMaterialType_Stone,	// 石
-	EMaterialType_Wood,		// 木
-
-	EMaterialType_Num		// 素材タイプの数
-} EMaterialType;
-
-// BGM
-typedef enum _EBGM
-{
-	EBGM_Stage0,			// ステージ１
-	EBGM_Stage1,			// ステージ２
-	EBGM_Title,				// タイトル
-	EBGM_Boss,				// ボス
-	EBGM_GameOver,			// ゲームオーバー
-	EBGM_StageClear,		// ステージクリア
-	EBGM_AllStageClear,		// 全ステージクリア
-
-	EBGM_Num				// BGMの数
-} EBGM;
 
 // ステージの描画タイプ
 typedef enum _EStageRenderType
@@ -82,13 +55,13 @@ typedef enum _EStageEventType
 typedef struct _SStageCharaInfo
 {
 	// キャラクター
-	CharaCategory         CharaType;
+	CharaCategory CharaType;
 
 	// 配置する座標
-	Vector3				  Pos;
+	VECTOR  Position;
 
 	// 配置時の向き
-	float                 Angle;
+	float  Angle;
 } SStageCharaInfo;
 
 // オブジェクトで使用する３Ｄモデルの情報
@@ -104,9 +77,7 @@ typedef struct _SStageObjectModelInfo
 	int                   CollisionModelHandle;
 
 	// コリジョン３Ｄモデルのマテリアルタイプ
-	
-	ShapeType shapeType[STAGE_COLLISION_MODEL_MATERIAL_MAX_NUM];
-	//EMaterialType         ColModelMatType[STAGE_COLLISION_MODEL_MATERIAL_MAX_NUM];
+	EMaterialType         ColModelMatType[STAGE_COLLISION_MODEL_MATERIAL_MAX_NUM];
 } SStageObjectModelInfo;
 
 // ステージに配置するオブジェクトの情報
@@ -144,7 +115,7 @@ typedef struct _SStageEventInfo
 	VECTOR                AreaSize;
 
 	// BGM変更イベント用のBGM情報
-	//EBGM                  Bgm;
+	EBGM                  Bgm;
 
 	// 何らかのオブジェクトに対するイベント用の、対象のオブジェクトの数
 	int                   ObjectNum;
@@ -211,8 +182,7 @@ typedef struct _SStageData
 	int                   SkyModelHandle;
 
 	// コリジョン３Ｄモデルのマテリアルタイプ
-	ShapeType	shapeType[STAGE_COLLISION_MODEL_MATERIAL_MAX_NUM];
-	//EMaterialType         ColModelMatType[STAGE_COLLISION_MODEL_MATERIAL_MAX_NUM];
+	EMaterialType         ColModelMatType[STAGE_COLLISION_MODEL_MATERIAL_MAX_NUM];
 
 	// ステージのキャラ配置情報
 	SStageCharaInfo       CharaInfo[STAGE_CHARA_MAX_NUM];
@@ -282,7 +252,7 @@ extern int StageData_GetObjectCollisionModelHandle(
 );
 
 // オブジェクトのコリジョン用３Ｄモデルの指定番号のマテリアルタイプを取得する
-extern ShapeType StageData_GetObjectCollisionModelMaterialType(
+extern EMaterialType StageData_GetObjectCollisionModelMaterialType(
 	// オブジェクトが使用する３Ｄモデルの番号
 	int Index,
 
@@ -316,7 +286,9 @@ extern int StageData_GetKillTargetChara(void);
 
 // ステージのコリジョン用３Ｄモデルの指定番号のマテリアルタイプを取得する
 //     戻り値 : マテリアルタイプ
-extern ShapeType StageData_GetCollisionModelMaterialType(
+extern EMaterialType StageData_GetCollisionModelMaterialType(
 	// コリジョン用３Ｄモデルのマテリアル番号
 	int MaterialIndex
 );
+
+#endif

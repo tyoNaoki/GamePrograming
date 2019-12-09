@@ -28,7 +28,7 @@ typedef enum _ETextParamType
 }ETextParamType;
 
 // パラメータ本体の共用体
-union _STextParam
+typedef union _STextParam
 {
 	// intタイプのパラメータ用変数
 	int                Int;
@@ -47,10 +47,10 @@ union _STextParam
 
 	// colorタイプのパラメータ用変数
 	COLOR_U8           Color;
-};
+}STextParamInfo;
 
 // パラメータ一つの情報
-struct _STextParamInfoUnit
+typedef struct _STextParamInfoUnit
 {
 	// パラメータの名前
 	char               Name[TEXTPARAM_NAME_MAXLENGTH];
@@ -60,35 +60,31 @@ struct _STextParamInfoUnit
 
 	// パラメータ本体
 	_STextParam         Param;
-};
+}STextParamInfo;
 
 // １ファイルのテキストパラメータ情報
-struct _STextParamInfo
+typedef struct _STextParamInfo
 {
 	// パラメータの数
 	int                ParamNum;
 
 	// パラメータ配列
 	_STextParamInfoUnit Param[TEXTPARAM_MAXNUM];
-};
+}STextParamInfo;
 
 class TextParamLoader
 {
 public:
-	bool  LoadTextParam(_STextParamInfo *TxtParam,const char *FilePath,...);
-	int   SearchTextParam(_STextParamInfo *TxtParam,const char *ParamName,...);
-	int   GetTextParamInt(_STextParamInfo *TxtParam,const char *ParamName,...);
-	bool  GetTextParamBool(_STextParamInfo *TxtParam,const char *ParamName,...);
-	float GetTextParamFloat(_STextParamInfo *TxtParam,const char *ParamName,...);
-	Vector3 GetTextParamVector(_STextParamInfo *TxtParam,const char *ParamName,...);
-	const char *GetTextParamString(_STextParamInfo *TxtParam,const char *ParamName,...);
-	COLOR_U8 GetTextParamColor(_STextParamInfo *TxtParam,const char *ParamName,...);
+	static bool  LoadTextParam(STextParamInfo *TxtParam,const char *FilePath,...);
+	static int   SearchTextParam(STextParamInfo *TxtParam,const char *ParamName,...);
+	static int   GetTextParamInt(STextParamInfo *TxtParam,const char *ParamName,...);
+	static bool  GetTextParamBool(STextParamInfo *TxtParam,const char *ParamName,...);
+	static float GetTextParamFloat(STextParamInfo *TxtParam,const char *ParamName,...);
+	static Vector3 GetTextParamVector(STextParamInfo *TxtParam,const char *ParamName,...);
+	static const char *GetTextParamString(STextParamInfo *TxtParam,const char *ParamName,...);
+	static COLOR_U8 GetTextParamColor(STextParamInfo *TxtParam,const char *ParamName,...);
 	TextParamLoader();
 	~TextParamLoader();
-private:
-	_STextParam STextParam;
-	_STextParamInfo STextParamInfo;
-	_STextParamInfoUnit STextParamInfoUnit;
 };
 
 #endif

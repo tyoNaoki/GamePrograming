@@ -55,6 +55,12 @@
     <Filter Include="TextParamloader">
       <UniqueIdentifier>{81f61d70-b367-4477-8d5b-3a3c7a1c572e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="StageData">
+      <UniqueIdentifier>{3ff98704-7a82-4c97-af69-69d9c6823dff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BinalyFile">
+      <UniqueIdentifier>{c99e561d-2ac9-4ace-b665-d33baac8e45e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinMain.cpp">
@@ -161,6 +167,15 @@
     </ClCompile>
     <ClCompile Include="TextParamLoader.cpp">
       <Filter>TextParamloader</Filter>
+    </ClCompile>
+    <ClCompile Include="StageDataLoader.cpp">
+      <Filter>StageData</Filter>
+    </ClCompile>
+    <ClCompile Include="StageInfo.cpp">
+      <Filter>StageData</Filter>
+    </ClCompile>
+    <ClCompile Include="BinaryFile.cpp">
+      <Filter>BinalyFile</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -291,11 +306,17 @@
     <ClInclude Include="Mathematics.h">
       <Filter>Character</Filter>
     </ClInclude>
-    <ClInclude Include="StageInfo.h">
-      <Filter>World</Filter>
-    </ClInclude>
     <ClInclude Include="TextParamLoader.h">
       <Filter>TextParamloader</Filter>
+    </ClInclude>
+    <ClInclude Include="StageDataLoader.h">
+      <Filter>StageData</Filter>
+    </ClInclude>
+    <ClInclude Include="StageInfo.h">
+      <Filter>StageData</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryFile.h">
+      <Filter>BinalyFile</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

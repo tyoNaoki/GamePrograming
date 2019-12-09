@@ -29,7 +29,7 @@ static const char *g_TextParamTypeName[ETextParamType_Num] =
 	"color"
 };
 
-bool TextParamLoader::LoadTextParam(_STextParamInfo *TxtParam, const char *FilePath,...){
+bool TextParamLoader::LoadTextParam(STextParamInfo *TxtParam, const char *FilePath,...){
 	FILE   *fp;
 	char    Type[64];
 	char    Name[TEXTPARAM_NAME_MAXLENGTH];
@@ -57,7 +57,7 @@ bool TextParamLoader::LoadTextParam(_STextParamInfo *TxtParam, const char *FileP
 	}
 
 	// テキストパラメータ構造体を０で初期化する
-	memset(TxtParam, 0, sizeof(STextParamInfo));
+	memset(TxtParam, 0, sizeof(_STextParamInfo));
 
 	// テキストファイルの終端に到達するまでループ
 	Num = 0;
@@ -84,7 +84,7 @@ bool TextParamLoader::LoadTextParam(_STextParamInfo *TxtParam, const char *FileP
 		}
 
 		// タイプを保存
-		TxtParam->Param[Num].Type = (_ETextParamType)i;
+		TxtParam->Param[Num].Type = (ETextParamType)i;
 
 		// タイプによって処理を分岐
 		switch (TxtParam->Param[Num].Type)
@@ -148,7 +148,7 @@ bool TextParamLoader::LoadTextParam(_STextParamInfo *TxtParam, const char *FileP
 	return true;
 }
 
-int TextParamLoader::SearchTextParam(_STextParamInfo *TxtParam, const char *ParamName,...){
+int TextParamLoader::SearchTextParam(STextParamInfo *TxtParam, const char *ParamName,...){
 	int     i;
 	va_list VaList;
 	char    ParamNameS[MAX_PATH];
@@ -172,7 +172,7 @@ int TextParamLoader::SearchTextParam(_STextParamInfo *TxtParam, const char *Para
 	return -1;
 }
 
-int TextParamLoader::GetTextParamInt(_STextParamInfo *TxtParam, const char *ParamName,...){
+int TextParamLoader::GetTextParamInt(STextParamInfo *TxtParam, const char *ParamName,...){
 	// 可変個引数からパラメータ名を生成し、パラメータの配列中の
 	// インデックスを取得する定型処理を実行する
 	GETTEXTPARAM_COMMON
@@ -187,7 +187,7 @@ int TextParamLoader::GetTextParamInt(_STextParamInfo *TxtParam, const char *Para
 	return TxtParam->Param[Index].Param.Int;
 }
 
-bool TextParamLoader::GetTextParamBool(_STextParamInfo *TxtParam, const char *ParamName,...){
+bool TextParamLoader::GetTextParamBool(STextParamInfo *TxtParam, const char *ParamName,...){
 	// 可変個引数からパラメータ名を生成し、パラメータの配列中の
 	// インデックスを取得する定型処理を実行する
 	GETTEXTPARAM_COMMON
@@ -202,7 +202,7 @@ bool TextParamLoader::GetTextParamBool(_STextParamInfo *TxtParam, const char *Pa
 	return TxtParam->Param[Index].Param.Bool;
 }
 
-float TextParamLoader::GetTextParamFloat(_STextParamInfo *TxtParam, const char *ParamName,...){
+float TextParamLoader::GetTextParamFloat(STextParamInfo *TxtParam, const char *ParamName,...){
 	// 可変個引数からパラメータ名を生成し、パラメータの配列中の
 	// インデックスを取得する定型処理を実行する
 	GETTEXTPARAM_COMMON
@@ -217,7 +217,7 @@ float TextParamLoader::GetTextParamFloat(_STextParamInfo *TxtParam, const char *
 	return TxtParam->Param[Index].Param.Float;
 }
 
-Vector3 TextParamLoader::GetTextParamVector(_STextParamInfo *TxtParam, const char *ParamName,...){
+Vector3 TextParamLoader::GetTextParamVector(STextParamInfo *TxtParam, const char *ParamName,...){
 	// 可変個引数からパラメータ名を生成し、パラメータの配列中の
 	// インデックスを取得する定型処理を実行する
 	GETTEXTPARAM_COMMON
@@ -233,7 +233,7 @@ Vector3 TextParamLoader::GetTextParamVector(_STextParamInfo *TxtParam, const cha
 	 return Vector3(Vec.x, Vec.y, Vec.z);
 }
 
-const char * TextParamLoader::GetTextParamString(_STextParamInfo *TxtParam, const char *ParamName,...){
+const char * TextParamLoader::GetTextParamString(STextParamInfo *TxtParam, const char *ParamName,...){
 	// 可変個引数からパラメータ名を生成し、パラメータの配列中の
 	// インデックスを取得する定型処理を実行する
 	GETTEXTPARAM_COMMON
@@ -248,7 +248,7 @@ const char * TextParamLoader::GetTextParamString(_STextParamInfo *TxtParam, cons
 	return TxtParam->Param[Index].Param.String;
 }
 
-DxLib::COLOR_U8 TextParamLoader::GetTextParamColor(_STextParamInfo *TxtParam, const char *ParamName,...){
+DxLib::COLOR_U8 TextParamLoader::GetTextParamColor(STextParamInfo *TxtParam, const char *ParamName,...){
 	// 可変個引数からパラメータ名を生成し、パラメータの配列中の
 	// インデックスを取得する定型処理を実行する
 	GETTEXTPARAM_COMMON
