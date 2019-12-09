@@ -84,10 +84,10 @@ typedef struct _SStageObjectModelInfo
 typedef struct _SStageObjectInfo
 {
 	// 使用する３Ｄモデル
-	int                   ModelID;
+	int ModelID;
 
 	// 配置する座標
-	VECTOR                Position;
+	VECTOR  Position;
 
 	// 配置時の向き
 	VECTOR                Angle;

@@ -2,6 +2,7 @@
 #include "BinaryFile.h"
 #include "DxLib.h"
 #include "TextParamLoader.h"
+#include "Render.h"
 #include <malloc.h>
 
 class TextParamLoader;

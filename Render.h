@@ -47,8 +47,6 @@ public:
 
 	void LoadTexture(const std::string& name, const std::string& fileName);
 	void LoadFont(const std::string& name = "Default", int size = 16, int thick = 2, const std::string& fileName = "Default");
-
-
 	void Load3DModel(const std::string& name, const std::string& fileName);
 	//同じモデルデータを使用するモデルハンドルを取得
 	int GetDuplicateModelID(const std::string& name);

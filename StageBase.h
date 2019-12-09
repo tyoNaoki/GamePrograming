@@ -4,6 +4,8 @@
 
 enum class GameTurn;
 
+
+
 class StageBase
 {
 public:

@@ -2,6 +2,7 @@
 #include "Vector3.h"
 #include <vector>
 #include <unordered_map>
+#include "StageDataLoader.h"
 #include "ObjectManager.h"
 
 #include "StageBase.h"
